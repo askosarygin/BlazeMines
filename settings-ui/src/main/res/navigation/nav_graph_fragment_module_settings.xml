@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_fragment_module_settings"
+    app:startDestination="@id/fragmentModuleSettings">
+
+    <fragment
+        android:id="@+id/fragmentModuleSettings"
+        android:name="com.example.settings_ui.screen_fragment_module.FragmentModuleSettings"
+        android:label="FragmentModuleSettings">
+
+        <deepLink app:uri="@string/deep_link_settings" />
+    </fragment>
+    <include app:graph="@navigation/nav_graph_settings"/>
+</navigation>
