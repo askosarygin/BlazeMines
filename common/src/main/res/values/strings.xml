@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">BlazeMines</string>
+
+    //Service
+    <string name="deep_link_game" translatable="false">blaze-mines://game</string>
+    <string name="deep_link_main" translatable="false">blaze-mines://main</string>
+    <string name="deep_link_settings" translatable="false">blaze-mines://settings</string>
+
+    <string name="blaze_mines_database" translatable="false">blaze_mines_database</string>
+    <string name="blaze_mines_preferences" translatable="false">blaze_mines_preferences</string>
 </resources>
