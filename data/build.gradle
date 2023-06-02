@@ -41,6 +41,10 @@ dependencies {
     implementation "com.google.dagger:dagger:$jetpackDaggerVersion"
     kapt "com.google.dagger:dagger-compiler:$jetpackDaggerVersion"
 
+    implementation "androidx.room:room-runtime:$roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+
     implementation project(path: ':common')
     implementation project(path: ':data-common')
 }
