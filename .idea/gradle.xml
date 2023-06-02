@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -10,6 +11,18 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/data-common" />
+            <option value="$PROJECT_DIR$/game-common" />
+            <option value="$PROJECT_DIR$/game-domain" />
+            <option value="$PROJECT_DIR$/game-ui" />
+            <option value="$PROJECT_DIR$/main-common" />
+            <option value="$PROJECT_DIR$/main-domain" />
+            <option value="$PROJECT_DIR$/main-ui" />
+            <option value="$PROJECT_DIR$/settings-common" />
+            <option value="$PROJECT_DIR$/settings-domain" />
+            <option value="$PROJECT_DIR$/settings-ui" />
           </set>
         </option>
       </GradleProjectSettings>
