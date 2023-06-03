@@ -55,14 +55,10 @@ dependencies {
 
     implementation project(path: ':common')
     implementation project(path: ':data')
-    implementation project(path: ':data-common')
-    implementation project(path: ':game-common')
     implementation project(path: ':game-domain')
     implementation project(path: ':game-ui')
-    implementation project(path: ':main-common')
     implementation project(path: ':main-domain')
     implementation project(path: ':main-ui')
-    implementation project(path: ':settings-common')
     implementation project(path: ':settings-domain')
     implementation project(path: ':settings-ui')
 }

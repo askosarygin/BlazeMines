@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     //Texts
-    <dimen name="text_size_medium">26sp</dimen>
+    <dimen name="text_size_medium">24sp</dimen>
+    <dimen name="text_size_extra_medium">26sp</dimen>
     <dimen name="text_size_large">32sp</dimen>
     <dimen name="text_size_extra_large">48sp</dimen>
 

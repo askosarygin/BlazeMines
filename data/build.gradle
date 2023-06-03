@@ -46,5 +46,4 @@ dependencies {
     kapt "androidx.room:room-compiler:$roomVersion"
 
     implementation project(path: ':common')
-    implementation project(path: ':data-common')
 }

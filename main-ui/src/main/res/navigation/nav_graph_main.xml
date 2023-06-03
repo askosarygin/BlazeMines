@@ -7,5 +7,17 @@
     <fragment
         android:id="@+id/fragmentScreenStart"
         android:name="com.example.main_ui.screen_start.FragmentScreenStart"
-        android:label="FragmentScreenStart" />
+        android:label="FragmentScreenStart" >
+        <action
+            android:id="@+id/action_fragmentScreenStart_to_fragmentScreenHowToPlay"
+            app:destination="@id/fragmentScreenHowToPlay" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentScreenHowToPlay"
+        android:name="com.example.main_ui.screen_how_to_play.FragmentScreenHowToPlay"
+        android:label="FragmentScreenHowToPlay" >
+        <action
+            android:id="@+id/action_fragmentScreenHowToPlay_to_fragmentScreenStart"
+            app:destination="@id/fragmentScreenStart" />
+    </fragment>
 </navigation>

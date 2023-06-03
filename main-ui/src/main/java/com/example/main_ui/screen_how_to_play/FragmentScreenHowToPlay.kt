@@ -1,7 +1,6 @@
-package com.example.main_ui.screen_start
+package com.example.main_ui.screen_how_to_play
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,20 +9,20 @@ import androidx.lifecycle.lifecycleScope
 import com.example.common.BlazeMinesFragment
 import com.example.common.NavHostsInfo
 import com.example.main_ui.R
-import com.example.main_ui.databinding.FragmentScreenStartBinding
+import com.example.main_ui.databinding.FragmentScreenHowToPlayBinding
 import com.example.main_ui.di.MainComponentViewModel
 import javax.inject.Inject
 
-class FragmentScreenStart : BlazeMinesFragment(R.layout.fragment_screen_start) {
-    private lateinit var binding: FragmentScreenStartBinding
+class FragmentScreenHowToPlay : BlazeMinesFragment(R.layout.fragment_screen_how_to_play) {
+    private lateinit var binding: FragmentScreenHowToPlayBinding
 
     @Inject
-    lateinit var factory: ViewModelScreenStart.Factory
+    lateinit var factory: ViewModelScreenHowToPlay.Factory
 
     @Inject
     lateinit var navHostsInfo: NavHostsInfo
 
-    private val viewModel by viewModels<ViewModelScreenStart> {
+    private val viewModel by viewModels<ViewModelScreenHowToPlay> {
         factory
     }
 
@@ -32,7 +31,7 @@ class FragmentScreenStart : BlazeMinesFragment(R.layout.fragment_screen_start) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentScreenStartBinding.inflate(
+        binding = FragmentScreenHowToPlayBinding.inflate(
             inflater,
             container,
             false
@@ -48,12 +47,8 @@ class FragmentScreenStart : BlazeMinesFragment(R.layout.fragment_screen_start) {
     }
 
     private fun initListeners() {
-        binding.btnPlay.setOnClickListener {
-            viewModel.buttonPlayPressed()
-        }
-
-        binding.btnHowToPlay.setOnClickListener {
-            viewModel.buttonHowToPlayPressed()
+        binding.btnBack.setOnClickListener {
+            viewModel.buttonBackPressed()
         }
     }
 
@@ -62,10 +57,10 @@ class FragmentScreenStart : BlazeMinesFragment(R.layout.fragment_screen_start) {
             if (oldModel?.navigationEvent != newModel.navigationEvent) {
                 newModel.navigationEvent?.use { navigationDestination ->
                     when (navigationDestination) {
-                        ViewModelScreenStart.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenLevels ->
-                            Log.i("MY_TAG", "Navigation working")
-                        ViewModelScreenStart.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenHowToPlay ->
-                            navigateToActionId(R.id.action_fragmentScreenStart_to_fragmentScreenHowToPlay)
+                        ViewModelScreenHowToPlay.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenStart ->
+                            navigateToActionId(
+                                R.id.action_fragmentScreenHowToPlay_to_fragmentScreenStart
+                            )
                     }
                 }
             }

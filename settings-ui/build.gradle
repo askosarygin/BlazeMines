@@ -51,6 +51,5 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$jetpackNavigationVersion"
 
     implementation project(path: ':common')
-    implementation project(path: ':settings-common')
     implementation project(path: ':settings-domain')
 }

@@ -42,5 +42,4 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$jetpackDaggerVersion"
 
     implementation project(path: ':common')
-    implementation project(path: ':settings-common')
 }
