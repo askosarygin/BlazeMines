@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BlazeMines</string>
+    <string name="app_name">blaze mines</string>
 
     //Service
     <string name="deep_link_game" translatable="false">blaze-mines://game</string>
@@ -8,4 +8,9 @@
 
     <string name="blaze_mines_database" translatable="false">blaze_mines_database</string>
     <string name="blaze_mines_preferences" translatable="false">blaze_mines_preferences</string>
+
+    //Screen start
+    <string name="game_name"><font color="#FFFFFF">blaze</font><font color="#F12C4C">\nmines</font></string>
+    <string name="play">Play</string>
+    <string name="how_to_play">How to play</string>
 </resources>

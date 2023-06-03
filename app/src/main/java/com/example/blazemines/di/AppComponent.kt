@@ -2,12 +2,15 @@ package com.example.blazemines.di
 
 import android.content.Context
 import android.content.res.Resources
+import com.example.blazemines.R
+import com.example.common.NavHostsInfo
 import com.example.game_ui.di.GameComponentDependencies
 import com.example.main_ui.di.MainComponentDependencies
 import com.example.settings_ui.di.SettingsComponentDependencies
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
+import dagger.Provides
 import javax.inject.Scope
 
 @[AppScope Component(
@@ -21,7 +24,7 @@ interface AppComponent
     MainComponentDependencies,
     SettingsComponentDependencies {
 
-//    override val navHostsInfo: NavHostsInfo
+    override val navHostsInfo: NavHostsInfo
 //    override val questionsInfoDAO: QuestionsInfoDAO
 //    override val resources: Resources
 //    override val sharedPreferences: SharedPreferences
@@ -42,10 +45,10 @@ interface AppComponent
 
 @Module
 class AppModule {
-//    @Provides
-//    fun provideNavHostsInfo(): NavHostsInfo = NavHostsInfo(
-//        globalNavHostId = R.id.global_fragment_container_view
-//    )
+    @Provides
+    fun provideNavHostsInfo(): NavHostsInfo = NavHostsInfo(
+        globalNavHostId = R.id.global_fragment_container_view
+    )
 
 //    @Provides
 //    fun provideQuestionsInfoDB(

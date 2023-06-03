@@ -1,11 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/blaze_mines_black_2">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.13375" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_bottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85625" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:text="Навигация сработала!"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:id="@+id/tv_game_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="44.5dp"
+        android:text="@string/game_name"
+        android:textSize="@dimen/text_size_extra_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gl_top" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_play"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="23dp"
+        android:background="@drawable/style_button_green"
+        android:gravity="center"
+        android:text="@string/play"
+        android:textColor="@color/blaze_mines_white"
+        android:textSize="@dimen/text_size_extra_large"
+        android:paddingVertical="10dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_how_to_play"
+        app:layout_constraintEnd_toEndOf="@id/tv_game_name"
+        app:layout_constraintStart_toStartOf="@id/tv_game_name" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_how_to_play"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/style_button_black"
+        android:gravity="center"
+        android:text="@string/how_to_play"
+        android:textColor="@color/blaze_mines_white"
+        android:drawableEnd="@drawable/icon_question"
+        android:paddingVertical="20dp"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintBottom_toBottomOf="@id/gl_bottom"
+        app:layout_constraintEnd_toEndOf="@id/btn_play"
+        app:layout_constraintStart_toStartOf="@id/btn_play" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

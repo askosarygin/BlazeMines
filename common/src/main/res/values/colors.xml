@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    //BlazeMines
+    <color name="blaze_mines_green">#29C726</color>
+    <color name="blaze_mines_white">#FFFFFF</color>
+    <color name="blaze_mines_red">#F12C4C</color>
+    <color name="blaze_mines_black_1">#2D3D4F</color>
+    <color name="blaze_mines_black_2">#162331</color>
 </resources>
