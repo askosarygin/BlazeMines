@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_fragmentScreenStart_to_fragmentScreenHowToPlay"
             app:destination="@id/fragmentScreenHowToPlay" />
+        <action
+            android:id="@+id/action_fragmentScreenStart_to_fragmentScreenLevels"
+            app:destination="@id/fragmentScreenLevels" />
     </fragment>
     <fragment
         android:id="@+id/fragmentScreenHowToPlay"
@@ -18,6 +21,14 @@
         android:label="FragmentScreenHowToPlay" >
         <action
             android:id="@+id/action_fragmentScreenHowToPlay_to_fragmentScreenStart"
+            app:destination="@id/fragmentScreenStart" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentScreenLevels"
+        android:name="com.example.main_ui.screen_levels.FragmentScreenLevels"
+        android:label="FragmentScreenLevels" >
+        <action
+            android:id="@+id/action_fragmentScreenLevels_to_fragmentScreenStart"
             app:destination="@id/fragmentScreenStart" />
     </fragment>
 </navigation>

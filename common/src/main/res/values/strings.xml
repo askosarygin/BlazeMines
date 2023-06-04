@@ -15,4 +15,7 @@
     <string name="how_to_play">How to play</string>
     <string name="how_to_play_header">How To Play</string>
     <string name="how_to_play_description">Remember the location of the cards with lights and try to find them all. You can\'t hit the rollers with bums, you have 3 lives, if they run out, start the level again. If you do not use more than one attempt - you will get 3 stars per level!</string>
+
+    //Screen levels
+    <string name="levels">Levels</string>
 </resources>

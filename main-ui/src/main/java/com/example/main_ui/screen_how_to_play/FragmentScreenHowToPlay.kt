@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.common.BlazeMinesFragment
-import com.example.common.NavHostsInfo
 import com.example.main_ui.R
 import com.example.main_ui.databinding.FragmentScreenHowToPlayBinding
 import com.example.main_ui.di.MainComponentViewModel
@@ -18,9 +17,6 @@ class FragmentScreenHowToPlay : BlazeMinesFragment(R.layout.fragment_screen_how_
 
     @Inject
     lateinit var factory: ViewModelScreenHowToPlay.Factory
-
-    @Inject
-    lateinit var navHostsInfo: NavHostsInfo
 
     private val viewModel by viewModels<ViewModelScreenHowToPlay> {
         factory

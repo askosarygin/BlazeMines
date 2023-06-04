@@ -8,4 +8,15 @@
 
     //Buttons
     <dimen name="button_radius">8dp</dimen>
+
+    //Percents
+    <dimen name="indent_button_back_start">0.06667</dimen>
+    <dimen name="indent_button_settings_end">0.93056</dimen>
+    <dimen name="indent_buttons_back_and_settings_top">0.15278</dimen>
+
+    //Screen levels
+    <dimen name="margin_bottom_number_top_stars">11dp</dimen>
+    <dimen name="margin_horizontal_levels_list">5dp</dimen>
+
+
 </resources>
