@@ -18,4 +18,10 @@
 
     //Screen levels
     <string name="levels">Levels</string>
+
+    //Screen settings
+    <string name="change_the_cards">Change the\ncards</string>
+    <string name="change_the_background">Change the\nbackground</string>
+    <string name="cards">Cards</string>
+    <string name="background">Background</string>
 </resources>

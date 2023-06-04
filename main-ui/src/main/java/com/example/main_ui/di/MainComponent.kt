@@ -86,7 +86,7 @@ internal class MainComponentViewModel : ViewModel() {
                 .build()
 
         fun getComponent(): MainComponent = mainComponent
-            ?: throw RuntimeException("GameScreen component is not initialized")
+            ?: throw RuntimeException("Main component is not initialized")
 
         private fun closeComponent() {
             mainComponent = null

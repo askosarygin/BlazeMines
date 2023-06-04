@@ -1,6 +1,7 @@
 package com.example.game_ui.di
 
 import androidx.lifecycle.ViewModel
+import com.example.common.NavHostsInfo
 import dagger.Component
 import dagger.Module
 import javax.inject.Scope
@@ -54,7 +55,7 @@ interface GameModuleBinds {
 }
 
 interface GameComponentDependencies {
-//    val navHostsInfo: NavHostsInfo
+    val navHostsInfo: NavHostsInfo
 //    val questionsInfoDAO: QuestionsInfoDAO
 //    val resources: Resources
 //    val sharedPreferences: SharedPreferences
@@ -80,7 +81,7 @@ internal class GameComponentViewModel : ViewModel() {
                 .build()
 
         fun getComponent(): GameComponent = gameComponent
-            ?: throw RuntimeException("GameScreen component is not initialized")
+            ?: throw RuntimeException("Game component is not initialized")
 
         private fun closeComponent() {
             gameComponent = null

@@ -1,6 +1,10 @@
 package com.example.settings_ui.di
 
 import androidx.lifecycle.ViewModel
+import com.example.common.NavHostsInfo
+import com.example.settings_ui.screen_change_background.FragmentScreenChangeBackground
+import com.example.settings_ui.screen_change_cards.FragmentScreenChangeCards
+import com.example.settings_ui.screen_settings.FragmentScreenSettings
 import dagger.Component
 import dagger.Module
 import javax.inject.Scope
@@ -15,7 +19,9 @@ import kotlin.properties.Delegates
 )]
 internal interface SettingsComponent {
 
-//    fun inject(fragmentScreenDifficultySelection: FragmentScreenDifficultySelection)
+    fun inject(fragmentScreenSettings: FragmentScreenSettings)
+    fun inject(fragmentScreenChangeBackground: FragmentScreenChangeBackground)
+    fun inject(fragmentScreenChangeCards: FragmentScreenChangeCards)
 
     @Component.Builder
     interface Builder {
@@ -54,7 +60,7 @@ interface SettingsModuleBinds {
 }
 
 interface SettingsComponentDependencies {
-//    val navHostsInfo: NavHostsInfo
+    val navHostsInfo: NavHostsInfo
 //    val questionsInfoDAO: QuestionsInfoDAO
 //    val resources: Resources
 //    val sharedPreferences: SharedPreferences
@@ -80,7 +86,7 @@ internal class SettingsComponentViewModel : ViewModel() {
                 .build()
 
         fun getComponent(): SettingsComponent = settingsComponent
-            ?: throw RuntimeException("GameScreen component is not initialized")
+            ?: throw RuntimeException("Settings component is not initialized")
 
         private fun closeComponent() {
             settingsComponent = null

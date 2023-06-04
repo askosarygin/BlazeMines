@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/nav_graph_settings">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_settings"
+    app:startDestination="@id/fragmentScreenSettings">
 
+    <fragment
+        android:id="@+id/fragmentScreenSettings"
+        android:name="com.example.settings_ui.screen_settings.FragmentScreenSettings"
+        android:label="FragmentScreenSettings" >
+        <action
+            android:id="@+id/action_fragmentScreenSettings_to_fragmentScreenChangeBackground"
+            app:destination="@id/fragmentScreenChangeBackground" />
+        <action
+            android:id="@+id/action_fragmentScreenSettings_to_fragmentScreenChangeCards"
+            app:destination="@id/fragmentScreenChangeCards" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentScreenChangeCards"
+        android:name="com.example.settings_ui.screen_change_cards.FragmentScreenChangeCards"
+        android:label="FragmentScreenChangeCards" >
+        <action
+            android:id="@+id/action_fragmentScreenChangeCards_to_fragmentScreenSettings"
+            app:destination="@id/fragmentScreenSettings" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentScreenChangeBackground"
+        android:name="com.example.settings_ui.screen_change_background.FragmentScreenChangeBackground"
+        android:label="FragmentScreenChangeBackground" >
+        <action
+            android:id="@+id/action_fragmentScreenChangeBackground_to_fragmentScreenSettings"
+            app:destination="@id/fragmentScreenSettings" />
+    </fragment>
 </navigation>

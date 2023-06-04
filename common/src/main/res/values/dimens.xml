@@ -18,5 +18,13 @@
     <dimen name="margin_bottom_number_top_stars">11dp</dimen>
     <dimen name="margin_horizontal_levels_list">5dp</dimen>
 
+    //Screen settings
+    <dimen name="margin_bottom_back_top_background">96dp</dimen>
+    <dimen name="margin_bottom_background_top_cards">26dp</dimen>
 
+    //Screen change cards
+    <dimen name="margin_top_header_change_cards">20dp</dimen>
+
+    //Screen change background
+    <dimen name="margin_top_header_change_background">20dp</dimen>
 </resources>
