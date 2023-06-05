@@ -1,4 +1,4 @@
-package com.example.main_ui.screen_levels
+package com.example.game_ui.screen_game
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -6,28 +6,20 @@ import com.example.common.BlazeMinesViewModel
 import com.example.common.BlazeMinesViewModelSingleLifeEvent
 import javax.inject.Inject
 
-class ViewModelScreenLevels : BlazeMinesViewModel<ViewModelScreenLevels.Model>(Model()) {
+class ViewModelScreenGame : BlazeMinesViewModel<ViewModelScreenGame.Model>(Model()){
 
     fun buttonBackPressed() {
         updateNavigationEvent(
             Model.NavigationSingleLifeEvent(
-                Model.NavigationSingleLifeEvent.NavigationDestination.ScreenStart
+                Model.NavigationSingleLifeEvent.NavigationDestination.ScreenLevels
             )
         )
     }
 
-    fun buttonSettingsPressed() {
+    fun buttonHowToPlayPressed() {
         updateNavigationEvent(
             Model.NavigationSingleLifeEvent(
-                Model.NavigationSingleLifeEvent.NavigationDestination.ScreenSettings
-            )
-        )
-    }
-
-    fun buttonLevelsPressed() {
-        updateNavigationEvent(
-            Model.NavigationSingleLifeEvent(
-                Model.NavigationSingleLifeEvent.NavigationDestination.ScreenGame
+                Model.NavigationSingleLifeEvent.NavigationDestination.ScreenHowToPlay
             )
         )
     }
@@ -41,9 +33,8 @@ class ViewModelScreenLevels : BlazeMinesViewModel<ViewModelScreenLevels.Model>(M
             navigateTo
         ) {
             enum class NavigationDestination {
-                ScreenStart,
-                ScreenSettings,
-                ScreenGame
+                ScreenLevels,
+                ScreenHowToPlay
             }
         }
     }
@@ -60,8 +51,8 @@ class ViewModelScreenLevels : BlazeMinesViewModel<ViewModelScreenLevels.Model>(M
     ) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            require(modelClass == ViewModelScreenLevels::class.java)
-            return ViewModelScreenLevels(
+            require(modelClass == ViewModelScreenGame::class.java)
+            return ViewModelScreenGame(
 
             ) as T
         }

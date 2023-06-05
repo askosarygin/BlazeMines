@@ -1,4 +1,4 @@
-package com.example.main_ui.screen_levels
+package com.example.game_ui.screen_game
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,21 +10,21 @@ import com.example.common.BlazeMinesFragment
 import com.example.common.ModuleNames
 import com.example.common.NavHostsInfo
 import com.example.common.ScreenNames
-import com.example.main_ui.R
-import com.example.main_ui.databinding.FragmentScreenLevelsBinding
-import com.example.main_ui.di.MainComponentViewModel
+import com.example.game_ui.R
+import com.example.game_ui.databinding.FragmentScreenGameBinding
+import com.example.game_ui.di.GameComponentViewModel
 import javax.inject.Inject
 
-class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels) {
-    private lateinit var binding: FragmentScreenLevelsBinding
+class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
+    private lateinit var binding: FragmentScreenGameBinding
 
     @Inject
-    lateinit var factory: ViewModelScreenLevels.Factory
+    lateinit var factory: ViewModelScreenGame.Factory
 
     @Inject
     lateinit var navHostsInfo: NavHostsInfo
 
-    private val viewModel by viewModels<ViewModelScreenLevels> {
+    private val viewModel by viewModels<ViewModelScreenGame> {
         factory
     }
 
@@ -33,13 +33,13 @@ class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels)
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentScreenLevelsBinding.inflate(
+        binding = FragmentScreenGameBinding.inflate(
             inflater,
             container,
             false
         )
 
-        MainComponentViewModel.getComponent().inject(this)
+        GameComponentViewModel.getComponent().inject(this)
 
         initCollect()
 
@@ -53,11 +53,8 @@ class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels)
             viewModel.buttonBackPressed()
         }
 
-        binding.btnSettings.setOnClickListener {
-            viewModel.buttonSettingsPressed()
-        }
-        binding.tvLevels.setOnClickListener{
-            viewModel.buttonLevelsPressed()
+        binding.btnHowToPlay.setOnClickListener {
+            viewModel.buttonHowToPlayPressed()
         }
     }
 
@@ -66,18 +63,16 @@ class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels)
             if (oldModel?.navigationEvent != newModel.navigationEvent) {
                 newModel.navigationEvent?.use { navigationDestination ->
                     when (navigationDestination) {
-                        ViewModelScreenLevels.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenStart ->
-                            navigateToActionId(R.id.action_fragmentScreenLevels_to_fragmentScreenStart)
-                        ViewModelScreenLevels.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenSettings ->
+                        ViewModelScreenGame.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenLevels ->
                             navigateToModuleScreen(
-                                ModuleNames.Settings,
-                                ScreenNames.ScreenSettings,
+                                ModuleNames.Main,
+                                ScreenNames.ScreenLevels,
                                 navHostsInfo.globalNavHostId
                             )
-                        ViewModelScreenLevels.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenGame ->
+                        ViewModelScreenGame.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenHowToPlay ->
                             navigateToModuleScreen(
-                                ModuleNames.Game,
-                                ScreenNames.ScreenGame,
+                                ModuleNames.Main,
+                                ScreenNames.ScreenHowToPlay,
                                 navHostsInfo.globalNavHostId
                             )
                     }

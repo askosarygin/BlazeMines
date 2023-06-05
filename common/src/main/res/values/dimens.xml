@@ -4,7 +4,8 @@
     <dimen name="text_size_medium">24sp</dimen>
     <dimen name="text_size_extra_medium">26sp</dimen>
     <dimen name="text_size_large">32sp</dimen>
-    <dimen name="text_size_extra_large">48sp</dimen>
+    <dimen name="text_size_extra_large">41.7sp</dimen>
+    <dimen name="text_size_extra_extra_large">48sp</dimen>
 
     //Buttons
     <dimen name="button_radius">8dp</dimen>
@@ -13,6 +14,7 @@
     <dimen name="indent_button_back_start">0.06667</dimen>
     <dimen name="indent_button_settings_end">0.93056</dimen>
     <dimen name="indent_buttons_back_and_settings_top">0.15278</dimen>
+    <dimen name="indent_center">0.5</dimen>
 
     //Screen levels
     <dimen name="margin_bottom_number_top_stars">11dp</dimen>

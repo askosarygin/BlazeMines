@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/nav_graph_game">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_game"
+    app:startDestination="@id/fragmentScreenGame">
 
+    <fragment
+        android:id="@+id/fragmentScreenGame"
+        android:name="com.example.game_ui.screen_game.FragmentScreenGame"
+        android:label="FragmentScreenGame">
+
+        <deepLink app:uri="@string/deep_link_game_module_screen_game" />
+    </fragment>
 </navigation>

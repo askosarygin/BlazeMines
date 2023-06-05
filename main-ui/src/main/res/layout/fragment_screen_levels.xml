@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/levels"
         android:textColor="@color/blaze_mines_white"
-        android:textSize="@dimen/text_size_extra_large"/>
+        android:textSize="@dimen/text_size_extra_extra_large"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_levels"

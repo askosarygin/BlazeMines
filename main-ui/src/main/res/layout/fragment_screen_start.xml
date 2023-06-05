@@ -25,10 +25,34 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="44.5dp"
         android:text="@string/game_name"
-        android:textSize="@dimen/text_size_extra_large"
+        android:textSize="@dimen/text_size_extra_extra_large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/gl_top" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="118dp"
+        android:src="@drawable/bomb_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="205dp"
+        android:src="@drawable/bomb_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:src="@drawable/bomb_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_play"
@@ -37,10 +61,10 @@
         android:layout_marginBottom="23dp"
         android:background="@drawable/style_button_green"
         android:gravity="center"
+        android:paddingVertical="10dp"
         android:text="@string/play"
         android:textColor="@color/blaze_mines_white"
-        android:textSize="@dimen/text_size_extra_large"
-        android:paddingVertical="10dp"
+        android:textSize="@dimen/text_size_extra_extra_large"
         app:layout_constraintBottom_toTopOf="@id/btn_how_to_play"
         app:layout_constraintEnd_toEndOf="@id/tv_game_name"
         app:layout_constraintStart_toStartOf="@id/tv_game_name" />
@@ -50,11 +74,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/style_button_black"
+        android:drawableEnd="@drawable/icon_question"
         android:gravity="center"
+        android:paddingVertical="20dp"
         android:text="@string/how_to_play"
         android:textColor="@color/blaze_mines_white"
-        android:drawableEnd="@drawable/icon_question"
-        android:paddingVertical="20dp"
         android:textSize="@dimen/text_size_extra_medium"
         app:layout_constraintBottom_toBottomOf="@id/gl_bottom"
         app:layout_constraintEnd_toEndOf="@id/btn_play"

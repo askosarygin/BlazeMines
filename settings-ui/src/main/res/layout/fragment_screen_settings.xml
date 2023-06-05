@@ -13,7 +13,7 @@
         app:layout_constraintGuide_percent="@dimen/indent_button_back_start" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_buttons_back_and_settings_top"
+        android:id="@+id/gl_buttons_back_top"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="horizontal"
@@ -32,7 +32,7 @@
         android:layout_height="59dp"
         android:src="@drawable/icon_back"
         app:layout_constraintStart_toStartOf="@id/gl_button_back_start"
-        app:layout_constraintTop_toTopOf="@id/gl_buttons_back_and_settings_top" />
+        app:layout_constraintTop_toTopOf="@id/gl_buttons_back_top" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_background"
