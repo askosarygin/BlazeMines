@@ -2,9 +2,28 @@
     <string name="app_name">blaze mines</string>
 
     //Service
-    <string name="deep_link_game" translatable="false">blaze-mines://game</string>
-    <string name="deep_link_main" translatable="false">blaze-mines://main</string>
-    <string name="deep_link_settings" translatable="false">blaze-mines://settings</string>
+    <string name="deep_link_argument_name_screen_destination" translatable="false">ScreenDestination</string>
+    <string name="deep_link_argument_type_string" translatable="false">string</string>
+
+    <string name="deep_link_main_module" translatable="false">blaze-mines://main/{ScreenDestination}</string>
+    <string name="deep_link_main_module_without_argument" translatable="false">blaze-mines://main/</string>
+    <string name="deep_link_main_module_screen" translatable="false">blaze-mines://main-</string>
+    <string name="deep_link_main_module_screen_start" translatable="false">blaze-mines://main-ScreenStart</string>
+    <string name="deep_link_main_module_screen_how_to_play" translatable="false">blaze-mines://main-ScreenHowToPlay</string>
+    <string name="deep_link_main_module_screen_levels" translatable="false">blaze-mines://main-ScreenLevels</string>
+
+    <string name="deep_link_settings_module" translatable="false">blaze-mines://settings/{ScreenDestination}</string>
+    <string name="deep_link_settings_module_without_argument" translatable="false">blaze-mines://settings/</string>
+    <string name="deep_link_settings_module_screen" translatable="false">blaze-mines://settings-</string>
+    <string name="deep_link_settings_module_screen_settings" translatable="false">blaze-mines://settings-ScreenSettings</string>
+    <string name="deep_link_settings_module_screen_change_cards" translatable="false">blaze-mines://settings-ScreenChangeCards</string>
+    <string name="deep_link_settings_module_screen_change_background" translatable="false">blaze-mines://settings-ScreenChangeBackground</string>
+
+    <string name="deep_link_game_module" translatable="false">blaze-mines://game/{ScreenDestination}</string>
+    <string name="deep_link_game_module_without_argument" translatable="false">blaze-mines://game/</string>
+    <string name="deep_link_game_module_screen" translatable="false">blaze-mines://game-</string>
+    <string name="deep_link_game_module_screen_game" translatable="false">blaze-mines://game-ScreenGame</string>
+
 
     <string name="blaze_mines_database" translatable="false">blaze_mines_database</string>
     <string name="blaze_mines_preferences" translatable="false">blaze_mines_preferences</string>

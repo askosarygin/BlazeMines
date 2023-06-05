@@ -14,7 +14,10 @@
         <action
             android:id="@+id/action_fragmentScreenStart_to_fragmentScreenLevels"
             app:destination="@id/fragmentScreenLevels" />
+
+        <deepLink app:uri="@string/deep_link_main_module_screen_start"/>
     </fragment>
+
     <fragment
         android:id="@+id/fragmentScreenHowToPlay"
         android:name="com.example.main_ui.screen_how_to_play.FragmentScreenHowToPlay"
@@ -22,7 +25,10 @@
         <action
             android:id="@+id/action_fragmentScreenHowToPlay_to_fragmentScreenStart"
             app:destination="@id/fragmentScreenStart" />
+
+        <deepLink app:uri="@string/deep_link_main_module_screen_how_to_play"/>
     </fragment>
+
     <fragment
         android:id="@+id/fragmentScreenLevels"
         android:name="com.example.main_ui.screen_levels.FragmentScreenLevels"
@@ -30,5 +36,7 @@
         <action
             android:id="@+id/action_fragmentScreenLevels_to_fragmentScreenStart"
             app:destination="@id/fragmentScreenStart" />
+
+        <deepLink app:uri="@string/deep_link_main_module_screen_levels"/>
     </fragment>
 </navigation>

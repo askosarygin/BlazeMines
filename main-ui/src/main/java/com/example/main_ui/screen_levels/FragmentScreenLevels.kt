@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.common.BlazeMinesFragment
 import com.example.common.ModuleNames
 import com.example.common.NavHostsInfo
+import com.example.common.ScreenNames
 import com.example.main_ui.R
 import com.example.main_ui.databinding.FragmentScreenLevelsBinding
 import com.example.main_ui.di.MainComponentViewModel
@@ -65,8 +66,9 @@ class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels)
                         ViewModelScreenLevels.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenStart ->
                             navigateToActionId(R.id.action_fragmentScreenLevels_to_fragmentScreenStart)
                         ViewModelScreenLevels.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenSettings ->
-                            navigateToModule(
+                            navigateToModuleScreen(
                                 ModuleNames.Settings,
+                                ScreenNames.ScreenSettings,
                                 navHostsInfo.globalNavHostId
                             )
                     }

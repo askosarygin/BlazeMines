@@ -9,7 +9,8 @@
         android:name="com.example.game_ui.screen_fragment_module.FragmentModuleGame"
         android:label="FragmentModuleGame">
 
-        <deepLink app:uri="@string/deep_link_game" />
+        <deepLink app:uri="@string/deep_link_game_module" />
+        <argument android:name="@string/deep_link_argument_name_screen_destination" app:argType="@string/deep_link_argument_type_string"/>
     </fragment>
     <include app:graph="@navigation/nav_graph_game"/>
 </navigation>

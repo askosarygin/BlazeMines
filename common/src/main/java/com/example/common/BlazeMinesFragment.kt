@@ -2,6 +2,7 @@ package com.example.common
 
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
@@ -30,8 +31,9 @@ open class BlazeMinesFragment (
         }.launchIn(scope)
     }
 
-    protected fun navigateToModule(
+    protected fun navigateToModuleScreen(
         moduleName: ModuleNames,
+        screenNames: ScreenNames,
         @IdRes navHostId: Int,
         navOptions: NavOptions = androidx.navigation.navOptions {
             anim {
@@ -42,17 +44,25 @@ open class BlazeMinesFragment (
             }
         }
     ) {
+        Log.i("MY_TAG", "navigateToModuleScreen запущена")
         val deepLink = when (moduleName) {
-            ModuleNames.Game -> resources.getString(com.example.common.R.string.deep_link_game)
-            ModuleNames.Main -> resources.getString(com.example.common.R.string.deep_link_main)
-            ModuleNames.Settings -> resources.getString(com.example.common.R.string.deep_link_settings)
+            ModuleNames.Game -> resources.getString(com.example.common.R.string.deep_link_game_module_without_argument)
+            ModuleNames.Main -> resources.getString(com.example.common.R.string.deep_link_main_module_without_argument)
+            ModuleNames.Settings -> resources.getString(com.example.common.R.string.deep_link_settings_module_without_argument)
         }
 
         Navigation.findNavController(
             requireActivity(),
             navHostId
         ).navigate(
-            Uri.parse(deepLink),
+            Uri.parse(
+                buildString {
+                    append(deepLink)
+                    append(screenNames)
+                }.apply {
+                    Log.i("MY_TAG", this)
+                }
+            ),
             navOptions
         )
     }

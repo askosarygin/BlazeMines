@@ -14,6 +14,7 @@
         <action
             android:id="@+id/action_fragmentScreenSettings_to_fragmentScreenChangeCards"
             app:destination="@id/fragmentScreenChangeCards" />
+        <deepLink app:uri="@string/deep_link_settings_module_screen_settings" />
     </fragment>
     <fragment
         android:id="@+id/fragmentScreenChangeCards"
@@ -22,6 +23,7 @@
         <action
             android:id="@+id/action_fragmentScreenChangeCards_to_fragmentScreenSettings"
             app:destination="@id/fragmentScreenSettings" />
+        <deepLink app:uri="@string/deep_link_settings_module_screen_change_cards" />
     </fragment>
     <fragment
         android:id="@+id/fragmentScreenChangeBackground"
@@ -30,5 +32,6 @@
         <action
             android:id="@+id/action_fragmentScreenChangeBackground_to_fragmentScreenSettings"
             app:destination="@id/fragmentScreenSettings" />
+        <deepLink app:uri="@string/deep_link_settings_module_screen_change_background" />
     </fragment>
 </navigation>
