@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.common.*
 import com.example.game_ui.R
+import com.example.game_ui.common.LevelsInfo
 import com.example.game_ui.databinding.FragmentScreenLevelsBinding
 import com.example.game_ui.di.GameComponentViewModel
 import javax.inject.Inject
@@ -141,13 +142,27 @@ class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels)
                 1 -> starsDrawable[1]
                 2 -> starsDrawable[2]
                 3 -> starsDrawable[3]
-                else -> {starsDrawable[0]}
+                else -> {
+                    starsDrawable[0]
+                }
             }
 
             cellStars[index].setImageDrawable(stars)
 
             cells[index].setOnClickListener {
-                viewModel.levelSelected(levelInfo)
+                val nextLevelIndex = if (index == 14) {
+                    0
+                } else {
+                    index + 1
+                }
+
+                viewModel.levelSelected(
+                    LevelsInfo(
+                        index,
+                        nextLevelIndex,
+                        levelsInfo
+                    )
+                )
             }
         }
     }
@@ -188,8 +203,8 @@ class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels)
                         ViewModelScreenLevels.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenGame ->
                             navigateToActionId(
                                 R.id.action_fragmentScreenLevels_to_fragmentScreenGame,
-                                newModel.selectedLevelInfo,
-                                resources.getString(com.example.common.R.string.blaze_mines_bundle_key_level_info)
+                                newModel.currentAndNextLevels,
+                                resources.getString(com.example.common.R.string.blaze_mines_bundle_key_levels_info)
                             )
                     }
                 }

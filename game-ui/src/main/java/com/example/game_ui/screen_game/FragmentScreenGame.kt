@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.common.*
 import com.example.game_ui.R
 import com.example.game_ui.common.LevelResult
+import com.example.game_ui.common.LevelsInfo
 import com.example.game_ui.databinding.FragmentScreenGameBinding
 import com.example.game_ui.di.GameComponentViewModel
 import kotlinx.coroutines.delay
@@ -53,10 +54,10 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
     override fun onResume() {
         super.onResume()
 
-        val levelInfo =
-            getBundleNavigation(resources.getString(com.example.common.R.string.blaze_mines_bundle_key_level_info)) as LevelInfo
+        val levelsInfo =
+            getBundleNavigation(resources.getString(com.example.common.R.string.blaze_mines_bundle_key_levels_info)) as LevelsInfo
 
-        viewModel.initLevelInfo(levelInfo)
+        viewModel.initLevelInfo(levelsInfo)
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -180,7 +181,8 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
             viewModel.model.value.currentLevelInfo!!.numberOfFires - viewModel.model.value.leftToFindFires,
             viewModel.model.value.currentLevelInfo!!.numberOfFires,
             viewModel.model.value.lifeHeartsCount,
-            viewModel.model.value.currentLevelInfo!!
+            viewModel.model.value.currentLevelInfo!!,
+            viewModel.model.value.levelsInfo
         )
     }
 

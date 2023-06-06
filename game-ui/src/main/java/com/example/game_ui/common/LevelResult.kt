@@ -8,5 +8,5 @@ data class LevelResult(
     val needFires: Int = -1,
     val starsCount: Int = -1,
     val currentLevelInfo: LevelInfo = LevelInfo(),
-    val nextLevelInfo: LevelInfo = LevelInfo()
+    val levelsInfo: LevelsInfo = LevelsInfo()
 ) : java.io.Serializable

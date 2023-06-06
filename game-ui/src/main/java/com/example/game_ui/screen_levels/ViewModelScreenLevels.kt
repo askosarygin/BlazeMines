@@ -7,6 +7,7 @@ import com.example.common.BlazeMinesViewModel
 import com.example.common.BlazeMinesViewModelSingleLifeEvent
 import com.example.common.LevelInfo
 import com.example.game_domain.Interactor
+import com.example.game_ui.common.LevelsInfo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,8 +16,8 @@ class ViewModelScreenLevels(
     private val interactor: Interactor
 ) : BlazeMinesViewModel<ViewModelScreenLevels.Model>(Model()) {
 
-    fun levelSelected(selectedLevelInfo: LevelInfo) {
-        updateSelectedLevelInfo(selectedLevelInfo)
+    fun levelSelected(levelsInfo: LevelsInfo) {
+        updateSelectedLevelInfo(levelsInfo)
 
         updateNavigationEvent(
             Model.NavigationSingleLifeEvent(
@@ -50,7 +51,7 @@ class ViewModelScreenLevels(
     }
 
     data class Model(
-        val selectedLevelInfo: LevelInfo = LevelInfo(),
+        val currentAndNextLevels: LevelsInfo = LevelsInfo(),
         val levelsInfo: List<LevelInfo> = listOf(),
         val navigationEvent: NavigationSingleLifeEvent? = null
     ) {
@@ -67,10 +68,10 @@ class ViewModelScreenLevels(
         }
     }
 
-    private fun updateSelectedLevelInfo(selectedLevelInfo: LevelInfo) {
+    private fun updateSelectedLevelInfo(currentAndNextLevels: LevelsInfo) {
         update {
             it.copy(
-                selectedLevelInfo = selectedLevelInfo
+                currentAndNextLevels = currentAndNextLevels
             )
         }
     }

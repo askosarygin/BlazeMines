@@ -2,6 +2,7 @@ package com.example.game_ui.screen_result
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -65,16 +66,37 @@ class FragmentScreenGameResult : BlazeMinesFragment(R.layout.fragment_screen_gam
         binding.btnReplay.setOnClickListener {
             navigateToActionId(
                 R.id.action_fragmentScreenGameResult_to_fragmentScreenGame,
-                viewModel.model.value.levelResult.currentLevelInfo,
-                resources.getString(com.example.common.R.string.blaze_mines_bundle_key_level_info)
+                viewModel.model.value.levelResult.levelsInfo,
+                resources.getString(com.example.common.R.string.blaze_mines_bundle_key_levels_info)
             )
         }
 
         binding.btnNext.setOnClickListener {
+            var currentLevelIndex = viewModel.model.value.levelResult.levelsInfo.currentLevelIndex
+            var nextLevelIndex = viewModel.model.value.levelResult.levelsInfo.nextLevelIndex
+
+            Log.i("MY_TAG", "currentLevelIndex ${currentLevelIndex}")
+            Log.i("MY_TAG", "nextLevelIndex ${nextLevelIndex}")
+
+            if (nextLevelIndex == 14) {
+                nextLevelIndex = 0
+            } else {
+                nextLevelIndex += 1
+            }
+
+            if (currentLevelIndex == 14) {
+                currentLevelIndex = 0
+            } else {
+                currentLevelIndex += 1
+            }
+
             navigateToActionId(
-                R.id.action_fragmentScreenLevels_to_fragmentScreenGame,
-                viewModel.model.value.levelResult.nextLevelInfo,
-                resources.getString(com.example.common.R.string.blaze_mines_bundle_key_level_info)
+                R.id.action_fragmentScreenGameResult_to_fragmentScreenGame,
+                viewModel.model.value.levelResult.levelsInfo.copy(
+                    currentLevelIndex = currentLevelIndex,
+                    nextLevelIndex = nextLevelIndex
+                ),
+                resources.getString(com.example.common.R.string.blaze_mines_bundle_key_levels_info)
             )
         }
     }

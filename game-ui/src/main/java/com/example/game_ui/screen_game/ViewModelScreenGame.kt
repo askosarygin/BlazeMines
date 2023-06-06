@@ -8,6 +8,7 @@ import com.example.common.BlazeMinesViewModelSingleLifeEvent
 import com.example.common.LevelInfo
 import com.example.common.NumberOfStars
 import com.example.game_domain.Interactor
+import com.example.game_ui.common.LevelsInfo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -28,9 +29,12 @@ class ViewModelScreenGame(
         }
     }
 
-    fun initLevelInfo(levelInfo: LevelInfo) {
-        updateLevelInfo(levelInfo)
-        updateLeftToFindFires(levelInfo.numberOfFires)
+    fun initLevelInfo(levelsInfo: LevelsInfo) {
+        updateCurrentLevelInfo(levelsInfo.levelsInfo[levelsInfo.currentLevelIndex])
+
+        updateLevelsInfo(levelsInfo)
+
+        updateLeftToFindFires(levelsInfo.levelsInfo[levelsInfo.currentLevelIndex].numberOfFires)
     }
 
     fun buttonBackPressed() {
@@ -61,6 +65,7 @@ class ViewModelScreenGame(
         val leftToFindFires: Int = -1,
         val lifeHeartsCount: Int = 3,
         val currentLevelInfo: LevelInfo? = null,
+        val levelsInfo: LevelsInfo = LevelsInfo(),
         val navigationEvent: NavigationSingleLifeEvent? = null
     ) {
         class NavigationSingleLifeEvent(
@@ -91,10 +96,18 @@ class ViewModelScreenGame(
         }
     }
 
-    private fun updateLevelInfo(levelInfo: LevelInfo) {
+    private fun updateLevelsInfo(levelsInfo: LevelsInfo) {
         update {
             it.copy(
-                currentLevelInfo = levelInfo
+                levelsInfo = levelsInfo
+            )
+        }
+    }
+
+    private fun updateCurrentLevelInfo(currentLevelInfo: LevelInfo) {
+        update {
+            it.copy(
+                currentLevelInfo = currentLevelInfo
             )
         }
     }

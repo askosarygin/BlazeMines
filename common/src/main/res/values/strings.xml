@@ -27,7 +27,7 @@
 
     <string name="blaze_mines_database" translatable="false">blaze_mines_database</string>
     <string name="blaze_mines_preferences" translatable="false">blaze_mines_preferences</string>
-    <string name="blaze_mines_bundle_key_level_info" translatable="false">blaze_mines_level_info</string>
+    <string name="blaze_mines_bundle_key_levels_info" translatable="false">blaze_mines_levels_info</string>
     <string name="blaze_mines_bundle_key_game_result" translatable="false">blaze_mines_game_result</string>
 
     //Screen start
