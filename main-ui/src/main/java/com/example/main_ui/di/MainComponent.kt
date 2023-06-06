@@ -3,7 +3,6 @@ package com.example.main_ui.di
 import androidx.lifecycle.ViewModel
 import com.example.common.NavHostsInfo
 import com.example.main_ui.screen_how_to_play.FragmentScreenHowToPlay
-import com.example.main_ui.screen_levels.FragmentScreenLevels
 import com.example.main_ui.screen_start.FragmentScreenStart
 import dagger.Component
 import dagger.Module
@@ -21,7 +20,6 @@ internal interface MainComponent {
 
     fun inject(fragmentScreenStart: FragmentScreenStart)
     fun inject(fragmentScreenHowToPlay: FragmentScreenHowToPlay)
-    fun inject(fragmentScreenLevels: FragmentScreenLevels)
 
     @Component.Builder
     interface Builder {

@@ -1,4 +1,4 @@
-package com.example.main_ui.screen_levels
+package com.example.game_ui.screen_levels
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,9 +10,9 @@ import com.example.common.BlazeMinesFragment
 import com.example.common.ModuleNames
 import com.example.common.NavHostsInfo
 import com.example.common.ScreenNames
-import com.example.main_ui.R
-import com.example.main_ui.databinding.FragmentScreenLevelsBinding
-import com.example.main_ui.di.MainComponentViewModel
+import com.example.game_ui.R
+import com.example.game_ui.databinding.FragmentScreenLevelsBinding
+import com.example.game_ui.di.GameComponentViewModel
 import javax.inject.Inject
 
 class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels) {
@@ -39,7 +39,7 @@ class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels)
             false
         )
 
-        MainComponentViewModel.getComponent().inject(this)
+        GameComponentViewModel.getComponent().inject(this)
 
         initCollect()
 
@@ -67,7 +67,11 @@ class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels)
                 newModel.navigationEvent?.use { navigationDestination ->
                     when (navigationDestination) {
                         ViewModelScreenLevels.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenStart ->
-                            navigateToActionId(R.id.action_fragmentScreenLevels_to_fragmentScreenStart)
+                            navigateToModuleScreen(
+                                ModuleNames.Main,
+                                ScreenNames.ScreenStart,
+                                navHostsInfo.globalNavHostId
+                            )
                         ViewModelScreenLevels.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenSettings ->
                             navigateToModuleScreen(
                                 ModuleNames.Settings,
@@ -75,11 +79,7 @@ class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels)
                                 navHostsInfo.globalNavHostId
                             )
                         ViewModelScreenLevels.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenGame ->
-                            navigateToModuleScreen(
-                                ModuleNames.Game,
-                                ScreenNames.ScreenGame,
-                                navHostsInfo.globalNavHostId
-                            )
+                            navigateToActionId(R.id.action_fragmentScreenLevels_to_fragmentScreenGame)
                     }
                 }
             }

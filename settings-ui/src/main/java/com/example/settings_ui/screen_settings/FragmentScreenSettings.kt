@@ -67,7 +67,7 @@ class FragmentScreenSettings : BlazeMinesFragment(R.layout.fragment_screen_setti
                     when (navigationDestination) {
                         ViewModelScreenSettings.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenLevels ->
                             navigateToModuleScreen(
-                                ModuleNames.Main,
+                                ModuleNames.Game,
                                 ScreenNames.ScreenLevels,
                                 navHostsInfo.globalNavHostId
                             )

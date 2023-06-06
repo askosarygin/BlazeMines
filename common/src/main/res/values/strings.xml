@@ -10,7 +10,6 @@
     <string name="deep_link_main_module_screen" translatable="false">blaze-mines://main-</string>
     <string name="deep_link_main_module_screen_start" translatable="false">blaze-mines://main-ScreenStart</string>
     <string name="deep_link_main_module_screen_how_to_play" translatable="false">blaze-mines://main-ScreenHowToPlay</string>
-    <string name="deep_link_main_module_screen_levels" translatable="false">blaze-mines://main-ScreenLevels</string>
 
     <string name="deep_link_settings_module" translatable="false">blaze-mines://settings/{ScreenDestination}</string>
     <string name="deep_link_settings_module_without_argument" translatable="false">blaze-mines://settings/</string>
@@ -23,6 +22,7 @@
     <string name="deep_link_game_module_without_argument" translatable="false">blaze-mines://game/</string>
     <string name="deep_link_game_module_screen" translatable="false">blaze-mines://game-</string>
     <string name="deep_link_game_module_screen_game" translatable="false">blaze-mines://game-ScreenGame</string>
+    <string name="deep_link_main_module_screen_levels" translatable="false">blaze-mines://game-ScreenLevels</string>
 
 
     <string name="blaze_mines_database" translatable="false">blaze_mines_database</string>

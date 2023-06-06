@@ -1,27 +1,28 @@
 package com.example.data.db
 
-import com.example.common.LevelDB
+import com.example.common.LevelInfoDB
 import com.example.common.NumberOfStars
 import javax.inject.Inject
 
 class LevelsStorageImpl @Inject constructor(
     private val levelsDatabase: LevelsDAO
 ) : LevelsStorage {
-    override suspend fun save(levelDB: LevelDB): Boolean {
+    override suspend fun save(levelInfoDB: LevelInfoDB): Boolean {
         levelsDatabase.add(
             LevelDatabaseClass(
-                levelDB.id,
-                levelDB.number,
-                levelDB.numberOfStars,
-                levelDB.numberOfBombs,
-                levelDB.numberOfFires,
-                levelDB.numberOfCells
+                levelInfoDB.id,
+                levelInfoDB.number,
+                levelInfoDB.numberOfStars,
+                levelInfoDB.numberOfBombs,
+                levelInfoDB.numberOfFires,
+                levelInfoDB.numberOfCells,
+                levelInfoDB.activated
             )
         )
         return true
     }
 
-    override suspend fun getAll(): List<LevelDB> {
+    override suspend fun getAll(): List<LevelInfoDB> {
         val levels = levelsDatabase.getAll()
 
         if (levels.isEmpty()) {
@@ -30,25 +31,27 @@ class LevelsStorageImpl @Inject constructor(
             }
 
             return levelsDatabase.getAll().map {
-                LevelDB(
+                LevelInfoDB(
                     it.id,
                     it.number,
                     it.numberOfStars,
                     it.numberOfBombs,
                     it.numberOfFires,
-                    it.numberOfCells
+                    it.numberOfCells,
+                    it.activated
                 )
             }
         }
 
         return levels.map {
-            LevelDB(
+            LevelInfoDB(
                 it.id,
                 it.number,
                 it.numberOfStars,
                 it.numberOfBombs,
                 it.numberOfFires,
-                it.numberOfCells
+                it.numberOfCells,
+                it.activated
             )
         }
     }

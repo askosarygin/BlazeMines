@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.common.BlazeMinesFragment
+import com.example.common.ModuleNames
+import com.example.common.NavHostsInfo
+import com.example.common.ScreenNames
 import com.example.main_ui.R
 import com.example.main_ui.databinding.FragmentScreenStartBinding
 import com.example.main_ui.di.MainComponentViewModel
@@ -17,6 +20,9 @@ class FragmentScreenStart : BlazeMinesFragment(R.layout.fragment_screen_start) {
 
     @Inject
     lateinit var factory: ViewModelScreenStart.Factory
+
+    @Inject
+    lateinit var navHostsInfo: NavHostsInfo
 
     private val viewModel by viewModels<ViewModelScreenStart> {
         factory
@@ -58,7 +64,11 @@ class FragmentScreenStart : BlazeMinesFragment(R.layout.fragment_screen_start) {
                 newModel.navigationEvent?.use { navigationDestination ->
                     when (navigationDestination) {
                         ViewModelScreenStart.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenLevels ->
-                            navigateToActionId(R.id.action_fragmentScreenStart_to_fragmentScreenLevels)
+                            navigateToModuleScreen(
+                                ModuleNames.Game,
+                                ScreenNames.ScreenLevels,
+                                navHostsInfo.globalNavHostId
+                            )
                         ViewModelScreenStart.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenHowToPlay ->
                             navigateToActionId(R.id.action_fragmentScreenStart_to_fragmentScreenHowToPlay)
                     }

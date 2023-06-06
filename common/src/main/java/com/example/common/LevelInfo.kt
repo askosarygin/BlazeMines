@@ -1,6 +1,6 @@
 package com.example.common
 
-data class LevelDB(
+data class LevelInfo(
     val id: Long,
     val number: Int,
     val numberOfStars: String,

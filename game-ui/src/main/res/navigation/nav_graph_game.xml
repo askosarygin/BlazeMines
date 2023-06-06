@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph_game"
-    app:startDestination="@id/fragmentScreenGame">
+    app:startDestination="@id/fragmentScreenLevels">
 
     <fragment
         android:id="@+id/fragmentScreenGame"
@@ -10,5 +10,19 @@
         android:label="FragmentScreenGame">
 
         <deepLink app:uri="@string/deep_link_game_module_screen_game" />
+        <action
+            android:id="@+id/action_fragmentScreenGame_to_fragmentScreenLevels"
+            app:destination="@id/fragmentScreenLevels" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentScreenLevels"
+        android:name="com.example.game_ui.screen_levels.FragmentScreenLevels"
+        android:label="FragmentScreenLevels" >
+
+        <deepLink app:uri="@string/deep_link_main_module_screen_levels"/>
+        <action
+            android:id="@+id/action_fragmentScreenLevels_to_fragmentScreenGame"
+            app:destination="@id/fragmentScreenGame" />
     </fragment>
 </navigation>

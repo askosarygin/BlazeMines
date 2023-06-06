@@ -46,4 +46,7 @@ dependencies {
     kapt "androidx.room:room-compiler:$roomVersion"
 
     implementation project(path: ':common')
+    implementation project(path: ':game-domain')
+    implementation project(path: ':main-domain')
+    implementation project(path: ':settings-domain')
 }

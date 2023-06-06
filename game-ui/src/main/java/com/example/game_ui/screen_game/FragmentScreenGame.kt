@@ -64,11 +64,7 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
                 newModel.navigationEvent?.use { navigationDestination ->
                     when (navigationDestination) {
                         ViewModelScreenGame.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenLevels ->
-                            navigateToModuleScreen(
-                                ModuleNames.Main,
-                                ScreenNames.ScreenLevels,
-                                navHostsInfo.globalNavHostId
-                            )
+                            navigateToActionId(R.id.action_fragmentScreenGame_to_fragmentScreenLevels)
                         ViewModelScreenGame.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenHowToPlay ->
                             navigateToModuleScreen(
                                 ModuleNames.Main,

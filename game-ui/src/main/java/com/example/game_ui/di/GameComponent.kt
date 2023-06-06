@@ -3,6 +3,7 @@ package com.example.game_ui.di
 import androidx.lifecycle.ViewModel
 import com.example.common.NavHostsInfo
 import com.example.game_ui.screen_game.FragmentScreenGame
+import com.example.game_ui.screen_levels.FragmentScreenLevels
 import dagger.Component
 import dagger.Module
 import javax.inject.Scope
@@ -18,6 +19,7 @@ import kotlin.properties.Delegates
 internal interface GameComponent {
 
     fun inject(fragmentScreenGame: FragmentScreenGame)
+    fun inject(fragmentScreenLevels: FragmentScreenLevels)
 
     @Component.Builder
     interface Builder {

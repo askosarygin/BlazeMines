@@ -1,4 +1,4 @@
-package com.example.main_ui.screen_levels
+package com.example.game_ui.screen_levels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -6,7 +6,9 @@ import com.example.common.BlazeMinesViewModel
 import com.example.common.BlazeMinesViewModelSingleLifeEvent
 import javax.inject.Inject
 
-class ViewModelScreenLevels : BlazeMinesViewModel<ViewModelScreenLevels.Model>(Model()) {
+class ViewModelScreenLevels(
+//    private val interactor: Interactor
+) : BlazeMinesViewModel<ViewModelScreenLevels.Model>(Model()) {
 
     fun buttonBackPressed() {
         updateNavigationEvent(
@@ -57,12 +59,13 @@ class ViewModelScreenLevels : BlazeMinesViewModel<ViewModelScreenLevels.Model>(M
     }
 
     class Factory @Inject constructor(
+//        private val interactor: Interactor
     ) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             require(modelClass == ViewModelScreenLevels::class.java)
             return ViewModelScreenLevels(
-
+//                interactor
             ) as T
         }
     }
