@@ -1,11 +1,11 @@
 package com.example.common
 
 data class LevelInfo(
-    val id: Long,
-    val number: Int,
-    val numberOfStars: String,
-    val numberOfBombs: Int,
-    val numberOfFires: Int,
-    val numberOfCells: Int,
-    val activated: Boolean
-)
+    val id: Long = 0L,
+    val number: Int = 0,
+    val numberOfStars: String = "",
+    val numberOfBombs: Int = 0,
+    val numberOfFires: Int = 0,
+    val numberOfCells: Int = 0,
+    val activated: Boolean = false
+) : java.io.Serializable

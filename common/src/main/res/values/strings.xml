@@ -27,6 +27,7 @@
 
     <string name="blaze_mines_database" translatable="false">blaze_mines_database</string>
     <string name="blaze_mines_preferences" translatable="false">blaze_mines_preferences</string>
+    <string name="blaze_mines_bundle_key_level_info" translatable="false">blaze_mines_level_info</string>
 
     //Screen start
     <string name="game_name"><font color="#FFFFFF">blaze</font><font color="#F12C4C">\nmines</font></string>

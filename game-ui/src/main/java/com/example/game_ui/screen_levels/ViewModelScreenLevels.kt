@@ -15,6 +15,16 @@ class ViewModelScreenLevels(
     private val interactor: Interactor
 ) : BlazeMinesViewModel<ViewModelScreenLevels.Model>(Model()) {
 
+    fun levelSelected(selectedLevelInfo: LevelInfo) {
+        updateSelectedLevelInfo(selectedLevelInfo)
+
+        updateNavigationEvent(
+            Model.NavigationSingleLifeEvent(
+                Model.NavigationSingleLifeEvent.NavigationDestination.ScreenGame
+            )
+        )
+    }
+
     fun loadLevelsInfo() {
         viewModelScope.launch(Dispatchers.IO) {
             val levelsInfo = interactor.loadLevelsInfoFromDB()
@@ -39,15 +49,8 @@ class ViewModelScreenLevels(
         )
     }
 
-    fun buttonLevelsPressed() {
-        updateNavigationEvent(
-            Model.NavigationSingleLifeEvent(
-                Model.NavigationSingleLifeEvent.NavigationDestination.ScreenGame
-            )
-        )
-    }
-
     data class Model(
+        val selectedLevelInfo: LevelInfo = LevelInfo(),
         val levelsInfo: List<LevelInfo> = listOf(),
         val navigationEvent: NavigationSingleLifeEvent? = null
     ) {
@@ -61,6 +64,14 @@ class ViewModelScreenLevels(
                 ScreenSettings,
                 ScreenGame
             }
+        }
+    }
+
+    private fun updateSelectedLevelInfo(selectedLevelInfo: LevelInfo) {
+        update {
+            it.copy(
+                selectedLevelInfo = selectedLevelInfo
+            )
         }
     }
 

@@ -145,6 +145,10 @@ class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels)
             }
 
             cellStars[index].setImageDrawable(stars)
+
+            cells[index].setOnClickListener {
+                viewModel.levelSelected(levelInfo)
+            }
         }
     }
 
@@ -161,9 +165,6 @@ class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels)
 
         binding.btnSettings.setOnClickListener {
             viewModel.buttonSettingsPressed()
-        }
-        binding.tvLevels.setOnClickListener{
-            viewModel.buttonLevelsPressed()
         }
     }
 
@@ -185,7 +186,11 @@ class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels)
                                 navHostsInfo.globalNavHostId
                             )
                         ViewModelScreenLevels.Model.NavigationSingleLifeEvent.NavigationDestination.ScreenGame ->
-                            navigateToActionId(R.id.action_fragmentScreenLevels_to_fragmentScreenGame)
+                            navigateToActionId(
+                                R.id.action_fragmentScreenLevels_to_fragmentScreenGame,
+                                newModel.selectedLevelInfo,
+                                resources.getString(com.example.common.R.string.blaze_mines_bundle_key_level_info)
+                            )
                     }
                 }
             }
