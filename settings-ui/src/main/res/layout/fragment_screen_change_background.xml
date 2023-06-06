@@ -47,9 +47,9 @@
         android:id="@+id/iv_checkbox_background_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/icon_checkbox"
         app:layout_constraintBottom_toBottomOf="@id/iv_background_1"
-        app:layout_constraintEnd_toEndOf="@id/iv_background_1"
-        android:src="@drawable/icon_checkbox" />
+        app:layout_constraintEnd_toEndOf="@id/iv_background_1" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_background_3"
@@ -65,9 +65,9 @@
         android:id="@+id/iv_checkbox_background_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/icon_checkbox"
         app:layout_constraintBottom_toBottomOf="@id/iv_background_3"
-        app:layout_constraintEnd_toEndOf="@id/iv_background_3"
-        android:src="@drawable/icon_checkbox" />
+        app:layout_constraintEnd_toEndOf="@id/iv_background_3" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_background_2"
@@ -82,9 +82,9 @@
         android:id="@+id/iv_checkbox_background_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/icon_checkbox"
         app:layout_constraintBottom_toBottomOf="@id/iv_background_2"
-        app:layout_constraintEnd_toEndOf="@id/iv_background_2"
-        android:src="@drawable/icon_checkbox" />
+        app:layout_constraintEnd_toEndOf="@id/iv_background_2" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_background_4"
@@ -100,9 +100,9 @@
         android:id="@+id/iv_checkbox_background_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/icon_checkbox"
         app:layout_constraintBottom_toBottomOf="@id/iv_background_4"
-        app:layout_constraintEnd_toEndOf="@id/iv_background_4"
-        android:src="@drawable/icon_checkbox" />
+        app:layout_constraintEnd_toEndOf="@id/iv_background_4" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/btn_back"
@@ -118,9 +118,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_top_header_change_background"
         android:gravity="center"
+        android:letterSpacing="0.04"
         android:text="@string/change_the_background"
         android:textColor="@color/blaze_mines_white"
-        android:textSize="@dimen/text_size_large"
+        android:textSize="@dimen/text_size_extra_extra_medium"
+        app:fontFamily="@font/roboto_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_back" />

@@ -38,12 +38,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_back" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_replay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="34dp"
-        android:src="@drawable/button_replay"
+        android:background="@drawable/button_replay"
+        android:drawableEnd="@drawable/icon_arrow_circle"
+        android:gravity="center"
+        android:letterSpacing="0.04"
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="10dp"
+        android:text="@string/replay"
+        android:textColor="@color/blaze_mines_white"
+        android:textSize="@dimen/text_size_large"
+        app:fontFamily="@font/roboto_bold"
         app:layout_constraintBottom_toBottomOf="@id/iv_result_background"
         app:layout_constraintEnd_toEndOf="@id/iv_result_background"
         app:layout_constraintStart_toStartOf="@id/iv_result_background" />
@@ -53,8 +62,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="51dp"
+        android:letterSpacing="0.04"
         android:textColor="@color/blaze_mines_white"
         android:textSize="@dimen/text_size_extra_extra_large"
+        app:fontFamily="@font/roboto_bold"
         app:layout_constraintEnd_toEndOf="@id/iv_result_background"
         app:layout_constraintStart_toStartOf="@id/iv_result_background"
         app:layout_constraintTop_toTopOf="@id/iv_result_background"
@@ -64,19 +75,30 @@
         android:id="@+id/tv_found_fires"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:letterSpacing="0.04"
         android:textColor="@color/blaze_mines_white"
         android:textSize="@dimen/text_size_extra_extra_large"
+        app:fontFamily="@font/roboto_bold"
         app:layout_constraintEnd_toEndOf="@id/iv_result_background"
         app:layout_constraintStart_toStartOf="@id/iv_result_background"
         app:layout_constraintTop_toBottomOf="@id/tv_level_number"
         tools:text="1/1" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:src="@drawable/button_next"
+        android:background="@drawable/button_next"
+        android:paddingHorizontal="40dp"
+        android:paddingBottom="10dp"
+        android:drawableEnd="@drawable/icon_arrow_right"
+        android:gravity="center"
+        android:letterSpacing="0.04"
+        android:text="@string/next"
+        android:textColor="@color/blaze_mines_white"
+        android:textSize="@dimen/text_size_extra_extra_large"
+        app:fontFamily="@font/roboto_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_result_background" />

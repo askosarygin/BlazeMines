@@ -49,7 +49,9 @@
         android:gravity="center"
         android:text="@string/change_the_cards"
         android:textColor="@color/blaze_mines_white"
-        android:textSize="@dimen/text_size_large"
+        android:textSize="@dimen/text_size_extra_extra_medium"
+        app:fontFamily="@font/roboto_bold"
+        android:letterSpacing="0.04"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_back" />

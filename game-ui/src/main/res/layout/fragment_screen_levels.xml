@@ -47,12 +47,14 @@
         android:id="@+id/tv_levels"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/btn_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/levels"
         android:textColor="@color/blaze_mines_white"
-        android:textSize="@dimen/text_size_extra_extra_large"/>
+        android:textSize="@dimen/text_size_extra_extra_large"
+        app:fontFamily="@font/roboto_bold"
+        android:letterSpacing="0.04"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_back" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_cell_1"

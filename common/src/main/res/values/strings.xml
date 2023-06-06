@@ -48,4 +48,6 @@
 
     //Screen game result
     <string name="level">Level</string>
+    <string name="replay">Replay</string>
+    <string name="next">Next</string>
 </resources>

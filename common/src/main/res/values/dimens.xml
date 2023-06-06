@@ -3,7 +3,8 @@
     //Texts
     <dimen name="text_size_medium">24sp</dimen>
     <dimen name="text_size_extra_medium">26sp</dimen>
-    <dimen name="text_size_large">32sp</dimen>
+    <dimen name="text_size_extra_extra_medium">32sp</dimen>
+    <dimen name="text_size_large">40sp</dimen>
     <dimen name="text_size_extra_large">41.7sp</dimen>
     <dimen name="text_size_extra_extra_large">48sp</dimen>
 
