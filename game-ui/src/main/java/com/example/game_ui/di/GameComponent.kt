@@ -3,6 +3,7 @@ package com.example.game_ui.di
 import androidx.lifecycle.ViewModel
 import com.example.common.NavHostsInfo
 import com.example.data.RepositoryGameDomainImpl
+import com.example.data.appdata.AppData
 import com.example.data.db.LevelsInfoStorage
 import com.example.game_domain.Interactor
 import com.example.game_domain.InteractorImpl
@@ -53,24 +54,12 @@ interface GameModuleBinds {
     fun bindInteractorImplToInteractor(
         interactorImpl: InteractorImpl
     ): Interactor
-
-//    @Binds
-//    fun bindQuestionsInfoDBStorageImplToQuestionsInfoDBStorage(
-//        questionsInfoDBStorageImpl: QuestionsInfoDBStorageImpl
-//    ): QuestionsInfoDBStorage
-//
-//    @Binds
-//    fun bindAccountDataStorageImplToAccountDataStorage(
-//        accountDataStorageImpl: AccountDataStorageImpl
-//    ): AccountDataStorage
 }
 
 interface GameComponentDependencies {
     val navHostsInfo: NavHostsInfo
     val levelsInfoStorage: LevelsInfoStorage
-//    val questionsInfoDAO: QuestionsInfoDAO
-//    val resources: Resources
-//    val sharedPreferences: SharedPreferences
+    val appData: AppData
 }
 
 object GameComponentDependenciesStore {

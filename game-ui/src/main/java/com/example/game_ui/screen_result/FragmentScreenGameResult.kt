@@ -51,10 +51,14 @@ class FragmentScreenGameResult : BlazeMinesFragment(R.layout.fragment_screen_gam
     override fun onResume() {
         super.onResume()
 
+        viewModel.initScreen()
+
         val levelResult =
             getBundleNavigation(resources.getString(com.example.common.R.string.blaze_mines_bundle_key_game_result)) as LevelResult
 
         viewModel.setLevelResult(levelResult)
+
+
     }
 
     private fun initListeners() {
@@ -138,6 +142,13 @@ class FragmentScreenGameResult : BlazeMinesFragment(R.layout.fragment_screen_gam
                             true
                         )
                     }
+                }
+
+                if (oldModel?.screenSettings != newModel.screenSettings) {
+                    changeScreenSettings(
+                        newModel.screenSettings,
+                        binding.root
+                    )
                 }
             }
         }

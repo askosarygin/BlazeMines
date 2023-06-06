@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.common.BlazeMinesViewModel
 import com.example.common.BlazeMinesViewModelSingleLifeEvent
 import com.example.common.LevelInfo
+import com.example.common.ScreenSettings
 import com.example.game_domain.Interactor
 import com.example.game_ui.common.LevelsInfo
 import kotlinx.coroutines.Dispatchers
@@ -15,6 +16,14 @@ import javax.inject.Inject
 class ViewModelScreenLevels(
     private val interactor: Interactor
 ) : BlazeMinesViewModel<ViewModelScreenLevels.Model>(Model()) {
+
+    fun initScreen() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val screenSettings = interactor.getScreenSettings()
+
+            updateScreenSettings(screenSettings)
+        }
+    }
 
     fun levelSelected(levelsInfo: LevelsInfo) {
         updateSelectedLevelInfo(levelsInfo)
@@ -51,6 +60,7 @@ class ViewModelScreenLevels(
     }
 
     data class Model(
+        val screenSettings: ScreenSettings = ScreenSettings(),
         val currentAndNextLevels: LevelsInfo = LevelsInfo(),
         val levelsInfo: List<LevelInfo> = listOf(),
         val navigationEvent: NavigationSingleLifeEvent? = null
@@ -65,6 +75,14 @@ class ViewModelScreenLevels(
                 ScreenSettings,
                 ScreenGame
             }
+        }
+    }
+
+    private fun updateScreenSettings(screenSettings: ScreenSettings) {
+        update {
+            it.copy(
+                screenSettings = screenSettings
+            )
         }
     }
 

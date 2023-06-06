@@ -6,6 +6,8 @@ import android.content.res.Resources
 import androidx.room.Room
 import com.example.blazemines.R
 import com.example.common.NavHostsInfo
+import com.example.data.appdata.AppData
+import com.example.data.appdata.AppDataImpl
 import com.example.data.db.LevelsDAO
 import com.example.data.db.LevelsInfoDatabase
 import com.example.data.db.LevelsInfoStorage
@@ -29,6 +31,7 @@ interface AppComponent
 
     override val navHostsInfo: NavHostsInfo
     override val levelsInfoStorage: LevelsInfoStorage
+    override val appData: AppData
 //    override val questionsInfoDAO: QuestionsInfoDAO
 //    override val resources: Resources
 //    override val sharedPreferences: SharedPreferences
@@ -86,6 +89,11 @@ interface AppModuleBinds {
     fun bindLevelsInfoStorageImplToLevelsInfoStorage(
         levelsInfoStorageImpl: LevelsInfoStorageImpl
     ): LevelsInfoStorage
+
+    @Binds
+    fun bindAppDataImplToAppData(
+        AppDataImpl: AppDataImpl
+    ): AppData
 }
 
 @Scope

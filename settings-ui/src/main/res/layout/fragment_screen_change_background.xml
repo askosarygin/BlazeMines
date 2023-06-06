@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blaze_mines_black_2">
@@ -35,7 +34,7 @@
         app:layout_constraintGuide_percent="@dimen/indent_center" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_cell_bomb_1"
+        android:id="@+id/iv_background_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
@@ -45,61 +44,65 @@
         app:layout_constraintTop_toBottomOf="@id/tv_change_the_background" />
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_checkbox_background_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/iv_cell_bomb_1"
-        app:layout_constraintEnd_toEndOf="@id/iv_cell_bomb_1"
-        tools:src="@drawable/icon_checkbox" />
+        app:layout_constraintBottom_toBottomOf="@id/iv_background_1"
+        app:layout_constraintEnd_toEndOf="@id/iv_background_1"
+        android:src="@drawable/icon_checkbox" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_cell_bomb_2"
+        android:id="@+id/iv_background_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:src="@drawable/icon_background_3"
         app:layout_constraintEnd_toEndOf="@id/gl_center"
         app:layout_constraintStart_toStartOf="@id/gl_button_back_start"
-        app:layout_constraintTop_toBottomOf="@id/iv_cell_bomb_1" />
+        app:layout_constraintTop_toBottomOf="@id/iv_background_1" />
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_checkbox_background_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/iv_cell_bomb_2"
-        app:layout_constraintEnd_toEndOf="@id/iv_cell_bomb_2"
-        tools:src="@drawable/icon_checkbox" />
+        app:layout_constraintBottom_toBottomOf="@id/iv_background_3"
+        app:layout_constraintEnd_toEndOf="@id/iv_background_3"
+        android:src="@drawable/icon_checkbox" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_cell_fire_1"
+        android:id="@+id/iv_background_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/icon_background_2"
         app:layout_constraintEnd_toEndOf="@id/gl_end"
         app:layout_constraintStart_toStartOf="@id/gl_center"
-        app:layout_constraintTop_toTopOf="@id/iv_cell_bomb_1" />
+        app:layout_constraintTop_toTopOf="@id/iv_background_1" />
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_checkbox_background_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/iv_cell_fire_1"
-        app:layout_constraintEnd_toEndOf="@id/iv_cell_fire_1"
-        tools:src="@drawable/icon_checkbox" />
+        app:layout_constraintBottom_toBottomOf="@id/iv_background_2"
+        app:layout_constraintEnd_toEndOf="@id/iv_background_2"
+        android:src="@drawable/icon_checkbox" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_cell_fire_2"
+        android:id="@+id/iv_background_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:src="@drawable/icon_background_4"
         app:layout_constraintEnd_toEndOf="@id/gl_end"
         app:layout_constraintStart_toStartOf="@id/gl_center"
-        app:layout_constraintTop_toBottomOf="@id/iv_cell_fire_1" />
+        app:layout_constraintTop_toBottomOf="@id/iv_background_2" />
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_checkbox_background_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/iv_cell_fire_2"
-        app:layout_constraintEnd_toEndOf="@id/iv_cell_fire_2"
-        tools:src="@drawable/icon_checkbox" />
+        app:layout_constraintBottom_toBottomOf="@id/iv_background_4"
+        app:layout_constraintEnd_toEndOf="@id/iv_background_4"
+        android:src="@drawable/icon_checkbox" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/btn_back"

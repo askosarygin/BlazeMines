@@ -3,10 +3,7 @@ package com.example.game_ui.screen_game
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.example.common.BlazeMinesViewModel
-import com.example.common.BlazeMinesViewModelSingleLifeEvent
-import com.example.common.LevelInfo
-import com.example.common.NumberOfStars
+import com.example.common.*
 import com.example.game_domain.Interactor
 import com.example.game_ui.common.LevelsInfo
 import kotlinx.coroutines.Dispatchers
@@ -17,12 +14,20 @@ class ViewModelScreenGame(
     private val interactor: Interactor
 ) : BlazeMinesViewModel<ViewModelScreenGame.Model>(Model()) {
 
+    fun initScreen() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val screenSettings = interactor.getScreenSettings()
+
+            updateScreenSettings(screenSettings)
+        }
+    }
+
     fun saveStarsInLevelsDB(
         id: Long,
         newNumberOfStars: NumberOfStars
     ) {
         viewModelScope.launch(Dispatchers.IO) {
-            interactor.updateNumberOfStars(
+            interactor.updateNumberOfStarsInDB(
                 id,
                 newNumberOfStars
             )
@@ -62,6 +67,7 @@ class ViewModelScreenGame(
     }
 
     data class Model(
+        val screenSettings: ScreenSettings = ScreenSettings(),
         val leftToFindFires: Int = -1,
         val lifeHeartsCount: Int = 3,
         val currentLevelInfo: LevelInfo? = null,
@@ -84,6 +90,14 @@ class ViewModelScreenGame(
         update {
             it.copy(
                 leftToFindFires = leftToFindFires
+            )
+        }
+    }
+
+    private fun updateScreenSettings(screenSettings: ScreenSettings) {
+        update {
+            it.copy(
+                screenSettings = screenSettings
             )
         }
     }

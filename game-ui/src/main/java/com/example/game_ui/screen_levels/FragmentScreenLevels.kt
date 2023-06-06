@@ -177,6 +177,8 @@ class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels)
     override fun onResume() {
         super.onResume()
 
+        viewModel.initScreen()
+
         viewModel.loadLevelsInfo()
     }
 
@@ -220,6 +222,13 @@ class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels)
                 if (newModel.levelsInfo.isNotEmpty()) {
                     initLevels(newModel.levelsInfo)
                 }
+            }
+
+            if (oldModel?.screenSettings != newModel.screenSettings) {
+                changeScreenSettings(
+                    newModel.screenSettings,
+                    binding.root
+                )
             }
         }
     }

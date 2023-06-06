@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.common.BlazeMinesViewModel
 import com.example.common.BlazeMinesViewModelSingleLifeEvent
+import com.example.common.ScreenSettings
 import com.example.game_domain.Interactor
 import com.example.game_ui.common.LevelResult
 import kotlinx.coroutines.Dispatchers
@@ -15,12 +16,20 @@ class ViewModelScreenGameResult @Inject constructor(
     private val interactor: Interactor
 ) : BlazeMinesViewModel<ViewModelScreenGameResult.Model>(Model()) {
 
+    fun initScreen() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val screenSettings = interactor.getScreenSettings()
+
+            updateScreenSettings(screenSettings)
+        }
+    }
+
     fun activateCell(
         id: Long,
         activated: Boolean
     ) {
         viewModelScope.launch(Dispatchers.IO) {
-            interactor.updateCellActivation(
+            interactor.updateCellActivationInDB(
                 id,
                 activated
             )
@@ -40,6 +49,7 @@ class ViewModelScreenGameResult @Inject constructor(
     }
 
     data class Model(
+        val screenSettings: ScreenSettings = ScreenSettings(),
         val levelResult: LevelResult = LevelResult(),
         val navigationEvent: NavigationSingleLifeEvent? = null
     ) {
@@ -51,6 +61,14 @@ class ViewModelScreenGameResult @Inject constructor(
             enum class NavigationDestination {
                 ScreenLevels
             }
+        }
+    }
+
+    private fun updateScreenSettings(screenSettings: ScreenSettings) {
+        update {
+            it.copy(
+                screenSettings = screenSettings
+            )
         }
     }
 

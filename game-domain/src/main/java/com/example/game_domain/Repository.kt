@@ -9,4 +9,10 @@ interface Repository {
     suspend fun updateNumberOfStarsInDB(id: Long, newNumberOfStars: NumberOfStars) : Boolean
 
     suspend fun updateCellActivationInDB(id: Long, activated: Boolean) : Boolean
+
+    suspend fun getBackgroundIdFromAppData(): Int
+
+    suspend fun getFireIconIdFromAppData(): Int
+
+    suspend fun getBombIconIdFromAppData(): Int
 }

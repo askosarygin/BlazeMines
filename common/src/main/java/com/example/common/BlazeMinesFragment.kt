@@ -1,9 +1,12 @@
 package com.example.common
 
+import android.annotation.SuppressLint
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
@@ -15,7 +18,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import java.io.Serializable
 
-open class BlazeMinesFragment (
+open class BlazeMinesFragment(
     @LayoutRes contentLayoutId: Int
 ) : Fragment(contentLayoutId) {
 
@@ -83,4 +86,38 @@ open class BlazeMinesFragment (
 
     protected fun getBundleNavigation(bundleKey: String): Serializable =
         arguments?.getSerializable(bundleKey) ?: throw RuntimeException("Bundle is empty!")
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    protected fun changeScreenSettings(
+        screenSettings: ScreenSettings,
+        root: ConstraintLayout? = null,
+        changeBombIcon: (Drawable) -> Unit = {},
+        changeFireIcon: (Drawable) -> Unit = {},
+    ) {
+        root?.let {
+            when (screenSettings.backgroundId) {
+                1 -> root.setBackgroundColor(resources.getColor(com.example.common.R.color.blaze_mines_black_2))
+                2 -> root.background =
+                    resources.getDrawable(com.example.common.R.drawable.background_2)
+                3 -> root.background =
+                    resources.getDrawable(com.example.common.R.drawable.background_3)
+                4 -> root.background =
+                    resources.getDrawable(com.example.common.R.drawable.background_4)
+            }
+        }
+
+        val bombIcon = when (screenSettings.bombIconId) {
+            1 -> resources.getDrawable(com.example.common.R.drawable.icon_cell_bomb_1)
+            2 -> resources.getDrawable(com.example.common.R.drawable.icon_cell_bomb_2)
+            else -> resources.getDrawable(com.example.common.R.drawable.icon_cell_bomb_1)
+        }
+        changeBombIcon(bombIcon)
+
+        val fireIcon = when (screenSettings.fireIconId) {
+            1 -> resources.getDrawable(com.example.common.R.drawable.icon_cell_fire_1)
+            2 -> resources.getDrawable(com.example.common.R.drawable.icon_cell_fire_2)
+            else -> resources.getDrawable(com.example.common.R.drawable.icon_cell_fire_1)
+        }
+        changeFireIcon(fireIcon)
+    }
 }

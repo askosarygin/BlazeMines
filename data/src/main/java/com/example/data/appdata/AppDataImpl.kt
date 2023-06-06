@@ -15,20 +15,20 @@ class AppDataImpl @Inject constructor(
         return true
     }
 
-    override fun getBackgroundId(): Int = sharedPreferences.getInt(keyBackgroundId, -1)
+    override fun getBackgroundId(): Int = sharedPreferences.getInt(keyBackgroundId, 1)
 
     override fun saveFireIconId(fireIconId: Int): Boolean {
         sharedPreferences.edit().putInt(keyFireIconId, fireIconId).apply()
         return true
     }
 
-    override fun getFireIconId(): Int = sharedPreferences.getInt(keyFireIconId, -1)
+    override fun getFireIconId(): Int = sharedPreferences.getInt(keyFireIconId, 1)
 
     override fun saveBombIconId(bombIconId: Int): Boolean {
         sharedPreferences.edit().putInt(keyBombIconId, bombIconId).apply()
         return true
     }
 
-    override fun getBombIconId(): Int = sharedPreferences.getInt(keyBombIconId, -1)
+    override fun getBombIconId(): Int = sharedPreferences.getInt(keyBombIconId, 1)
 
 }

@@ -48,6 +48,12 @@ class FragmentScreenStart : BlazeMinesFragment(R.layout.fragment_screen_start) {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        viewModel.initScreen()
+    }
+
     private fun initListeners() {
         binding.btnPlay.setOnClickListener {
             viewModel.buttonPlayPressed()
@@ -73,6 +79,13 @@ class FragmentScreenStart : BlazeMinesFragment(R.layout.fragment_screen_start) {
                             navigateToActionId(R.id.action_fragmentScreenStart_to_fragmentScreenHowToPlay)
                     }
                 }
+            }
+
+            if (oldModel?.screenSettings != newModel.screenSettings) {
+                changeScreenSettings(
+                    newModel.screenSettings,
+                    binding.root
+                )
             }
         }
     }

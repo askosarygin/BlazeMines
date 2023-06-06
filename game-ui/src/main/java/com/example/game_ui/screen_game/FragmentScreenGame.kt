@@ -30,6 +30,7 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
         factory
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -52,6 +53,8 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
 
     override fun onResume() {
         super.onResume()
+
+        viewModel.initScreen()
 
         val levelsInfo =
             getBundleNavigation(resources.getString(com.example.common.R.string.blaze_mines_bundle_key_levels_info)) as LevelsInfo
@@ -87,13 +90,24 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
                     cellView
                 )
             }
-
+            
             cellsForGame.forEach {
-                it.cellView.setImageDrawable(resources.getDrawable(R.drawable.icon_cell_bomb_1))
+                changeScreenSettings(
+                    viewModel.model.value.screenSettings,
+                    changeBombIcon = { bomb ->
+                        it.cellView.setImageDrawable(bomb)
+                    }
+                )
             }
 
             cellsForGame.shuffled().slice(0 until levelInfo.numberOfFires).forEach {
-                it.cellView.setImageDrawable(resources.getDrawable(R.drawable.icon_cell_fire_1))
+                changeScreenSettings(
+                    viewModel.model.value.screenSettings,
+                    changeFireIcon = { fire ->
+                        it.cellView.setImageDrawable(fire)
+                    }
+                )
+
                 it.isFire = true
             }
 
@@ -126,10 +140,22 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
             cellInfo.isSelected = true
 
             if (cellInfo.isFire) {
-                cellInfo.cellView.setImageDrawable(resources.getDrawable(R.drawable.icon_cell_fire_1))
+                changeScreenSettings(
+                    viewModel.model.value.screenSettings,
+                    changeFireIcon = { fire ->
+                        cellInfo.cellView.setImageDrawable(fire)
+                    }
+                )
+
                 viewModel.cellClickedFire()
             } else {
-                cellInfo.cellView.setImageDrawable(resources.getDrawable(R.drawable.icon_cell_bomb_1))
+                changeScreenSettings(
+                    viewModel.model.value.screenSettings,
+                    changeBombIcon = { bomb ->
+                        cellInfo.cellView.setImageDrawable(bomb)
+                    }
+                )
+
                 viewModel.cellClickedBomb()
             }
         }
@@ -236,6 +262,13 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
                 if (newModel.leftToFindFires == 0) {
                     directionToResultGame(getLevelResult())
                 }
+            }
+
+            if (oldModel?.screenSettings != newModel.screenSettings) {
+                changeScreenSettings(
+                    newModel.screenSettings,
+                    binding.root
+                )
             }
         }
     }

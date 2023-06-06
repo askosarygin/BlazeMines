@@ -76,8 +76,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_cell_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/iv_cell_2"
         app:layout_constraintEnd_toStartOf="@id/iv_cell_2"
@@ -86,8 +86,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_cell_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
         android:layout_marginTop="32dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,8 +97,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_cell_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/iv_cell_2"
         app:layout_constraintStart_toEndOf="@id/iv_cell_2"
@@ -107,8 +107,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_cell_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@id/iv_cell_1"
         app:layout_constraintStart_toStartOf="@id/iv_cell_1"
@@ -117,8 +117,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_cell_5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/iv_cell_4"
         app:layout_constraintStart_toEndOf="@id/iv_cell_4"
@@ -127,8 +127,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_cell_6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/iv_cell_5"
         app:layout_constraintStart_toEndOf="@id/iv_cell_5"
@@ -137,8 +137,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_cell_7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@id/iv_cell_4"
         app:layout_constraintStart_toStartOf="@id/iv_cell_4"
@@ -147,8 +147,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_cell_8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/iv_cell_7"
         app:layout_constraintStart_toEndOf="@id/iv_cell_7"
@@ -157,8 +157,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_cell_9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/iv_cell_8"
         app:layout_constraintStart_toEndOf="@id/iv_cell_8"
@@ -167,8 +167,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_cell_10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@id/iv_cell_7"
         app:layout_constraintStart_toStartOf="@id/iv_cell_7"
@@ -177,8 +177,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_cell_11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/iv_cell_10"
         app:layout_constraintStart_toEndOf="@id/iv_cell_10"
@@ -187,8 +187,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_cell_12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/iv_cell_11"
         app:layout_constraintStart_toEndOf="@id/iv_cell_11"
@@ -197,8 +197,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_cell_13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@id/iv_cell_10"
         app:layout_constraintStart_toStartOf="@id/iv_cell_10"
@@ -207,8 +207,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_cell_14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/iv_cell_13"
         app:layout_constraintStart_toEndOf="@id/iv_cell_13"
@@ -217,8 +217,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_cell_15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/iv_cell_14"
         app:layout_constraintStart_toEndOf="@id/iv_cell_14"

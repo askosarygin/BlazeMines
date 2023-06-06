@@ -2,9 +2,15 @@ package com.example.settings_ui.di
 
 import androidx.lifecycle.ViewModel
 import com.example.common.NavHostsInfo
+import com.example.data.RepositorySettingsDomainImpl
+import com.example.data.appdata.AppData
+import com.example.settings_domain.Interactor
+import com.example.settings_domain.InteractorImpl
+import com.example.settings_domain.Repository
 import com.example.settings_ui.screen_change_background.FragmentScreenChangeBackground
 import com.example.settings_ui.screen_change_cards.FragmentScreenChangeCards
 import com.example.settings_ui.screen_settings.FragmentScreenSettings
+import dagger.Binds
 import dagger.Component
 import dagger.Module
 import javax.inject.Scope
@@ -38,32 +44,20 @@ class SettingsModule
 @Module
 interface SettingsModuleBinds {
 
-//    @Binds
-//    fun bindRepositoryGameScreenDomainImplToRepository(
-//        repositoryGameScreenDomainImpl: RepositoryGameScreenDomainImpl
-//    ): Repository
-//
-//    @Binds
-//    fun bindInteractorImplToInteractor(
-//        interactorImpl: InteractorImpl
-//    ): Interactor
-//
-//    @Binds
-//    fun bindQuestionsInfoDBStorageImplToQuestionsInfoDBStorage(
-//        questionsInfoDBStorageImpl: QuestionsInfoDBStorageImpl
-//    ): QuestionsInfoDBStorage
-//
-//    @Binds
-//    fun bindAccountDataStorageImplToAccountDataStorage(
-//        accountDataStorageImpl: AccountDataStorageImpl
-//    ): AccountDataStorage
+    @Binds
+    fun bindRepositorySettingsDomainImplToRepository(
+        repositorySettingsDomainImpl: RepositorySettingsDomainImpl
+    ): Repository
+
+    @Binds
+    fun bindInteractorImplToInteractor(
+        interactorImpl: InteractorImpl
+    ): Interactor
 }
 
 interface SettingsComponentDependencies {
     val navHostsInfo: NavHostsInfo
-//    val questionsInfoDAO: QuestionsInfoDAO
-//    val resources: Resources
-//    val sharedPreferences: SharedPreferences
+    val appData: AppData
 }
 
 object SettingsComponentDependenciesStore {

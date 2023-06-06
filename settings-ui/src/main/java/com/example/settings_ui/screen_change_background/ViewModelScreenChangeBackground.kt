@@ -2,12 +2,25 @@ package com.example.settings_ui.screen_change_background
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.example.common.BlazeMinesViewModel
 import com.example.common.BlazeMinesViewModelSingleLifeEvent
+import com.example.settings_domain.Interactor
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class ViewModelScreenChangeBackground :
-    BlazeMinesViewModel<ViewModelScreenChangeBackground.Model>(Model()) {
+class ViewModelScreenChangeBackground @Inject constructor(
+    private val interactor: Interactor
+) : BlazeMinesViewModel<ViewModelScreenChangeBackground.Model>(Model()) {
+
+    fun initScreen() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val selectedBackgroundId = interactor.getBackgroundIdFromAppData()
+
+            updateSelectedBackground(selectedBackgroundId)
+        }
+    }
 
     fun buttonBackPressed() {
         updateNavigationEvent(
@@ -17,7 +30,16 @@ class ViewModelScreenChangeBackground :
         )
     }
 
+    fun changeSelectedBackground(selectedBackground: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            interactor.saveBackgroundIdToAppData(selectedBackground)
+        }
+
+        updateSelectedBackground(selectedBackground)
+    }
+
     data class Model(
+        val selectedBackgroundId: Int = 1,
         val navigationEvent: NavigationSingleLifeEvent? = null
     ) {
         class NavigationSingleLifeEvent(
@@ -31,6 +53,14 @@ class ViewModelScreenChangeBackground :
         }
     }
 
+    private fun updateSelectedBackground(selectedBackground: Int) {
+        update {
+            it.copy(
+                selectedBackgroundId = selectedBackground
+            )
+        }
+    }
+
     private fun updateNavigationEvent(navigationEvent: Model.NavigationSingleLifeEvent) {
         update {
             it.copy(
@@ -40,12 +70,13 @@ class ViewModelScreenChangeBackground :
     }
 
     class Factory @Inject constructor(
+        private val interactor: Interactor
     ) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             require(modelClass == ViewModelScreenChangeBackground::class.java)
             return ViewModelScreenChangeBackground(
-
+                interactor
             ) as T
         }
     }
