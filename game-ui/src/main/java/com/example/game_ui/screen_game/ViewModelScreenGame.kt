@@ -14,6 +14,7 @@ class ViewModelScreenGame(
 
     fun initLevelInfo(levelInfo: LevelInfo) {
         updateLevelInfo(levelInfo)
+        updateLeftToFindFires(levelInfo.numberOfFires)
     }
 
     fun buttonBackPressed() {
@@ -32,7 +33,18 @@ class ViewModelScreenGame(
         )
     }
 
+    fun cellClickedFire() {
+        updateLeftToFindFires(model.value.leftToFindFires - 1)
+    }
+
+    fun cellClickedBomb() {
+        updateLifeHeartsCount(model.value.lifeHeartsCount - 1)
+    }
+
     data class Model(
+        val leftToFindFires: Int = -1,
+        val lifeHeartsCount: Int = 3,
+//        val lastSelectedCellInfo: CellInfo? = null,
         val levelInfo: LevelInfo? = null,
         val navigationEvent: NavigationSingleLifeEvent? = null
     ) {
@@ -47,6 +59,30 @@ class ViewModelScreenGame(
             }
         }
     }
+
+    private fun updateLeftToFindFires(leftToFindFires: Int) {
+        update {
+            it.copy(
+                leftToFindFires = leftToFindFires
+            )
+        }
+    }
+
+    private fun updateLifeHeartsCount(lifeHeartsCount: Int) {
+        update {
+            it.copy(
+                lifeHeartsCount = lifeHeartsCount
+            )
+        }
+    }
+
+//    private fun updateLastSelectedCellInfo(lastSelectedCellInfo: CellInfo) {
+//        update {
+//            it.copy(
+//                lastSelectedCellInfo = lastSelectedCellInfo
+//            )
+//        }
+//    }
 
     private fun updateLevelInfo(levelInfo: LevelInfo) {
         update {

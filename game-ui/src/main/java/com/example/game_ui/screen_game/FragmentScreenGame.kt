@@ -12,6 +12,8 @@ import com.example.common.*
 import com.example.game_ui.R
 import com.example.game_ui.databinding.FragmentScreenGameBinding
 import com.example.game_ui.di.GameComponentViewModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
@@ -58,41 +60,77 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
 
     @SuppressLint("UseCompatLoadingForDrawables")
     private fun initLevel(levelInfo: LevelInfo) {
-        val cellsAll = listOf(
-            binding.ivCell1,
-            binding.ivCell2,
-            binding.ivCell3,
-            binding.ivCell4,
-            binding.ivCell5,
-            binding.ivCell6,
-            binding.ivCell7,
-            binding.ivCell8,
-            binding.ivCell9,
-            binding.ivCell10,
-            binding.ivCell11,
-            binding.ivCell12,
-            binding.ivCell13,
-            binding.ivCell14,
-            binding.ivCell15
-        )
+        lifecycleScope.launch {
+            val cellsAll = listOf(
+                binding.ivCell1,
+                binding.ivCell2,
+                binding.ivCell3,
+                binding.ivCell4,
+                binding.ivCell5,
+                binding.ivCell6,
+                binding.ivCell7,
+                binding.ivCell8,
+                binding.ivCell9,
+                binding.ivCell10,
+                binding.ivCell11,
+                binding.ivCell12,
+                binding.ivCell13,
+                binding.ivCell14,
+                binding.ivCell15
+            )
 
-        val cellsForGame = cellsAll.slice(0 until levelInfo.numberOfCells)
+            val cells = cellsAll.slice(0 until levelInfo.numberOfCells)
 
-        Log.i("MY_TAG", "numberOfCells = ${levelInfo.numberOfCells}")
-        Log.i("MY_TAG", "cellsForGame = ${cellsForGame.size}")
+            val cellsForGame = cells.map { cellView ->
+                CellInfo(
+                    cellView
+                )
+            }
 
-        cellsForGame.forEach {
-            it.setImageDrawable(resources.getDrawable(R.drawable.icon_cell_bomb_1))
+            cellsForGame.forEach {
+                it.cellView.setImageDrawable(resources.getDrawable(R.drawable.icon_cell_bomb_1))
+            }
+
+            cellsForGame.shuffled().slice(0 until levelInfo.numberOfFires).forEach {
+                it.cellView.setImageDrawable(resources.getDrawable(R.drawable.icon_cell_fire_1))
+                it.isFire = true
+            }
+
+            cellsForGame.forEach {
+                it.cellView.visibility = View.VISIBLE
+            }
+
+            binding.tvFireCount.text = buildString {
+                append("0/")
+                append(levelInfo.numberOfFires)
+            }
+
+            delay(2000L)//todo
+
+            cellsForGame.forEach {
+                it.cellView.setImageDrawable(resources.getDrawable(R.drawable.icon_cell_empty))
+            }
+
+            cellsForGame.forEach { cellInfo ->
+                cellInfo.cellView.setOnClickListener {
+                    cellClicked(cellInfo)
+                }
+            }
         }
+    }
 
-        Log.i("MY_TAG", "cellsWithFire = ${levelInfo.numberOfFires}")
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private fun cellClicked(cellInfo: CellInfo) {
+        if (!cellInfo.isSelected) {
+            cellInfo.isSelected = true
 
-        cellsForGame.shuffled().slice(0 until levelInfo.numberOfFires).forEach {
-            it.setImageDrawable(resources.getDrawable(R.drawable.icon_cell_fire_1))
-        }
-
-        cellsForGame.forEach {
-            it.visibility = View.VISIBLE
+            if (cellInfo.isFire) {
+                cellInfo.cellView.setImageDrawable(resources.getDrawable(R.drawable.icon_cell_fire_1))
+                viewModel.cellClickedFire()
+            } else {
+                cellInfo.cellView.setImageDrawable(resources.getDrawable(R.drawable.icon_cell_bomb_1))
+                viewModel.cellClickedBomb()
+            }
         }
     }
 
@@ -106,6 +144,7 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
         }
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private fun initCollect() {
         viewModel.model.collectWithOld(lifecycleScope) { oldModel, newModel ->
             if (oldModel?.navigationEvent != newModel.navigationEvent) {
@@ -126,6 +165,37 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
             if (oldModel?.levelInfo != newModel.levelInfo) {
                 newModel.levelInfo?.let {
                     initLevel(it)
+                }
+            }
+
+            if (oldModel?.lifeHeartsCount != newModel.lifeHeartsCount) {
+                when (newModel.lifeHeartsCount) {
+                    0 -> {
+                        binding.ivLifeHearts.background =
+                            resources.getDrawable(R.drawable.icon_life_hearts_0)
+                        //todo направление на экран результатов
+                        Log.i("MY_TAG", "Все жизни закончились")
+                    }
+                    1 -> binding.ivLifeHearts.background =
+                        resources.getDrawable(R.drawable.icon_life_hearts_1)
+                    2 -> binding.ivLifeHearts.background =
+                        resources.getDrawable(R.drawable.icon_life_hearts_2)
+                    3 -> binding.ivLifeHearts.background =
+                        resources.getDrawable(R.drawable.icon_life_hearts_3)
+                }
+            }
+
+            if (oldModel?.leftToFindFires != newModel.leftToFindFires) {
+                newModel.levelInfo?.let {
+                    binding.tvFireCount.text = buildString {
+                        append(newModel.levelInfo.numberOfFires - newModel.leftToFindFires)
+                        append("/")
+                        append(newModel.levelInfo.numberOfFires)
+                    }
+                }
+                if (newModel.leftToFindFires == 0) {
+                    //todo направить на экран результатов
+                    Log.i("MY_TAG", "Все огоньки найдены")
                 }
             }
         }

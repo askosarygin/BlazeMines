@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/blaze_mines_black_2">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_button_back_start"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="@dimen/indent_button_back_start" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_buttons_back_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="@dimen/indent_buttons_back_and_settings_top" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_back"
+        app:layout_constraintStart_toStartOf="@id/gl_button_back_start"
+        app:layout_constraintTop_toTopOf="@id/gl_buttons_back_top" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
