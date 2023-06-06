@@ -44,7 +44,6 @@ class ViewModelScreenGame(
     data class Model(
         val leftToFindFires: Int = -1,
         val lifeHeartsCount: Int = 3,
-//        val lastSelectedCellInfo: CellInfo? = null,
         val levelInfo: LevelInfo? = null,
         val navigationEvent: NavigationSingleLifeEvent? = null
     ) {
@@ -75,14 +74,6 @@ class ViewModelScreenGame(
             )
         }
     }
-
-//    private fun updateLastSelectedCellInfo(lastSelectedCellInfo: CellInfo) {
-//        update {
-//            it.copy(
-//                lastSelectedCellInfo = lastSelectedCellInfo
-//            )
-//        }
-//    }
 
     private fun updateLevelInfo(levelInfo: LevelInfo) {
         update {

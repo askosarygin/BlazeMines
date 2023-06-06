@@ -35,5 +35,8 @@
         <action
             android:id="@+id/action_fragmentScreenGameResult_to_fragmentScreenLevels"
             app:destination="@id/fragmentScreenLevels" />
+        <action
+            android:id="@+id/action_fragmentScreenGameResult_to_fragmentScreenGame"
+            app:destination="@id/fragmentScreenGame" />
     </fragment>
 </navigation>

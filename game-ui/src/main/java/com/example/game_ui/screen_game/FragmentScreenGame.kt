@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.common.*
 import com.example.game_ui.R
+import com.example.game_ui.common.LevelResult
 import com.example.game_ui.databinding.FragmentScreenGameBinding
 import com.example.game_ui.di.GameComponentViewModel
 import kotlinx.coroutines.delay
@@ -144,6 +145,27 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
         }
     }
 
+    private fun directionToResultGame(levelResult: LevelResult) {
+        navigateToActionId(
+            R.id.action_fragmentScreenGame_to_fragmentScreenGameResult,
+            levelResult,
+            resources.getString(com.example.common.R.string.blaze_mines_bundle_key_game_result)
+        )
+    }
+
+    private fun getLevelResult(): LevelResult {
+        return LevelResult(
+            buildString {
+                append("Level ")
+                append(viewModel.model.value.levelInfo!!.number)
+            },
+            viewModel.model.value.levelInfo!!.numberOfFires - viewModel.model.value.leftToFindFires,
+            viewModel.model.value.levelInfo!!.numberOfFires,
+            viewModel.model.value.lifeHeartsCount,
+            viewModel.model.value.levelInfo!!
+        )
+    }
+
     @SuppressLint("UseCompatLoadingForDrawables")
     private fun initCollect() {
         viewModel.model.collectWithOld(lifecycleScope) { oldModel, newModel ->
@@ -175,10 +197,7 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
                             resources.getDrawable(R.drawable.icon_life_hearts_0)
                         //todo направление на экран результатов
                         Log.i("MY_TAG", "Все жизни закончились")
-                        navigateToActionId(
-                            R.id.action_fragmentScreenGame_to_fragmentScreenGameResult,
-
-                            )
+                        directionToResultGame(getLevelResult())
                     }
                     1 -> binding.ivLifeHearts.background =
                         resources.getDrawable(R.drawable.icon_life_hearts_1)
@@ -198,10 +217,7 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
                     }
                 }
                 if (newModel.leftToFindFires == 0) {
-                    navigateToActionId(
-                        R.id.action_fragmentScreenGame_to_fragmentScreenGameResult,
-
-                    )
+                    directionToResultGame(getLevelResult())
                     Log.i("MY_TAG", "Все огоньки найдены")
                 }
             }

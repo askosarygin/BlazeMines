@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.common.BlazeMinesViewModel
 import com.example.common.BlazeMinesViewModelSingleLifeEvent
+import com.example.game_ui.common.LevelResult
 import javax.inject.Inject
 
 class ViewModelScreenGameResult : BlazeMinesViewModel<ViewModelScreenGameResult.Model>(Model()){
@@ -16,7 +17,12 @@ class ViewModelScreenGameResult : BlazeMinesViewModel<ViewModelScreenGameResult.
         )
     }
 
+    fun setLevelResult(levelResult: LevelResult) {
+        updateLevelResult(levelResult)
+    }
+
     data class Model(
+        val levelResult: LevelResult = LevelResult(),
         val navigationEvent: NavigationSingleLifeEvent? = null
     ) {
         class NavigationSingleLifeEvent(
@@ -27,6 +33,14 @@ class ViewModelScreenGameResult : BlazeMinesViewModel<ViewModelScreenGameResult.
             enum class NavigationDestination {
                 ScreenLevels
             }
+        }
+    }
+
+    private fun updateLevelResult(levelResult: LevelResult) {
+        update {
+            it.copy(
+                levelResult = levelResult
+            )
         }
     }
 
