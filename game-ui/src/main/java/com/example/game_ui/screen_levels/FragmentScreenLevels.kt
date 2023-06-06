@@ -137,10 +137,10 @@ class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels)
             cells[index].setBackgroundDrawable(activeCell)
 
             val stars = when (levelInfo.numberOfStars) {
-                NumberOfStars.Zero.name -> starsDrawable[0]
-                NumberOfStars.One.name -> starsDrawable[1]
-                NumberOfStars.Two.name -> starsDrawable[2]
-                NumberOfStars.Three.name -> starsDrawable[3]
+                0 -> starsDrawable[0]
+                1 -> starsDrawable[1]
+                2 -> starsDrawable[2]
+                3 -> starsDrawable[3]
                 else -> {starsDrawable[0]}
             }
 

@@ -151,18 +151,36 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
             levelResult,
             resources.getString(com.example.common.R.string.blaze_mines_bundle_key_game_result)
         )
+        val currentLevelInfo = viewModel.model.value.currentLevelInfo
+
+        if (currentLevelInfo!!.numberOfStars < levelResult.starsCount) {
+            val numberOfStars = when (levelResult.starsCount) {
+                0 -> NumberOfStars.Zero
+                1 -> NumberOfStars.One
+                2 -> NumberOfStars.Two
+                3 -> NumberOfStars.Three
+                else -> {
+                    NumberOfStars.Zero
+                }
+            }
+
+            viewModel.saveStarsInLevelsDB(
+                viewModel.model.value.currentLevelInfo!!.id,
+                numberOfStars
+            )
+        }
     }
 
     private fun getLevelResult(): LevelResult {
         return LevelResult(
             buildString {
                 append("Level ")
-                append(viewModel.model.value.levelInfo!!.number)
+                append(viewModel.model.value.currentLevelInfo!!.number)
             },
-            viewModel.model.value.levelInfo!!.numberOfFires - viewModel.model.value.leftToFindFires,
-            viewModel.model.value.levelInfo!!.numberOfFires,
+            viewModel.model.value.currentLevelInfo!!.numberOfFires - viewModel.model.value.leftToFindFires,
+            viewModel.model.value.currentLevelInfo!!.numberOfFires,
             viewModel.model.value.lifeHeartsCount,
-            viewModel.model.value.levelInfo!!
+            viewModel.model.value.currentLevelInfo!!
         )
     }
 
@@ -184,8 +202,8 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
                 }
             }
 
-            if (oldModel?.levelInfo != newModel.levelInfo) {
-                newModel.levelInfo?.let {
+            if (oldModel?.currentLevelInfo != newModel.currentLevelInfo) {
+                newModel.currentLevelInfo?.let {
                     initLevel(it)
                 }
             }
@@ -209,11 +227,11 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
             }
 
             if (oldModel?.leftToFindFires != newModel.leftToFindFires) {
-                newModel.levelInfo?.let {
+                newModel.currentLevelInfo?.let {
                     binding.tvFireCount.text = buildString {
-                        append(newModel.levelInfo.numberOfFires - newModel.leftToFindFires)
+                        append(newModel.currentLevelInfo.numberOfFires - newModel.leftToFindFires)
                         append("/")
-                        append(newModel.levelInfo.numberOfFires)
+                        append(newModel.currentLevelInfo.numberOfFires)
                     }
                 }
                 if (newModel.leftToFindFires == 0) {

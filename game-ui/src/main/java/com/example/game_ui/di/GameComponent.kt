@@ -2,7 +2,7 @@ package com.example.game_ui.di
 
 import androidx.lifecycle.ViewModel
 import com.example.common.NavHostsInfo
-import com.example.data.RepositoryMainDomainImpl
+import com.example.data.RepositoryGameDomainImpl
 import com.example.data.db.LevelsInfoStorage
 import com.example.game_domain.Interactor
 import com.example.game_domain.InteractorImpl
@@ -46,7 +46,7 @@ interface GameModuleBinds {
 
     @Binds
     fun bindRepositoryMainDomainImplToRepository(
-        repositoryMainDomainImpl: RepositoryMainDomainImpl
+        repositoryGameDomainImpl: RepositoryGameDomainImpl
     ): Repository
 
     @Binds
