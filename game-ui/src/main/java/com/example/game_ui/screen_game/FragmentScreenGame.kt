@@ -175,6 +175,10 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
                             resources.getDrawable(R.drawable.icon_life_hearts_0)
                         //todo направление на экран результатов
                         Log.i("MY_TAG", "Все жизни закончились")
+                        navigateToActionId(
+                            R.id.action_fragmentScreenGame_to_fragmentScreenGameResult,
+
+                            )
                     }
                     1 -> binding.ivLifeHearts.background =
                         resources.getDrawable(R.drawable.icon_life_hearts_1)
@@ -194,7 +198,10 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
                     }
                 }
                 if (newModel.leftToFindFires == 0) {
-                    //todo направить на экран результатов
+                    navigateToActionId(
+                        R.id.action_fragmentScreenGame_to_fragmentScreenGameResult,
+
+                    )
                     Log.i("MY_TAG", "Все огоньки найдены")
                 }
             }

@@ -13,7 +13,7 @@
     //Percents
     <dimen name="indent_button_back_start">0.06667</dimen>
     <dimen name="indent_button_settings_end">0.93056</dimen>
-    <dimen name="indent_buttons_back_and_settings_top">0.15278</dimen>
+    <dimen name="indent_buttons_back_and_settings_top">0.06875</dimen>
     <dimen name="indent_center">0.5</dimen>
 
     //Screen levels

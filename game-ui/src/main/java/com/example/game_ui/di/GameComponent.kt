@@ -9,6 +9,7 @@ import com.example.game_domain.InteractorImpl
 import com.example.game_domain.Repository
 import com.example.game_ui.screen_game.FragmentScreenGame
 import com.example.game_ui.screen_levels.FragmentScreenLevels
+import com.example.game_ui.screen_result.FragmentScreenGameResult
 import dagger.Binds
 import dagger.Component
 import dagger.Module
@@ -26,6 +27,7 @@ internal interface GameComponent {
 
     fun inject(fragmentScreenGame: FragmentScreenGame)
     fun inject(fragmentScreenLevels: FragmentScreenLevels)
+    fun inject(fragmentScreenGameResult: FragmentScreenGameResult)
 
     @Component.Builder
     interface Builder {

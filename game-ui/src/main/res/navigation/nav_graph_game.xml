@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_fragmentScreenGame_to_fragmentScreenLevels"
             app:destination="@id/fragmentScreenLevels" />
+        <action
+            android:id="@+id/action_fragmentScreenGame_to_fragmentScreenGameResult"
+            app:destination="@id/fragmentScreenGameResult" />
     </fragment>
 
     <fragment
@@ -24,5 +27,13 @@
         <action
             android:id="@+id/action_fragmentScreenLevels_to_fragmentScreenGame"
             app:destination="@id/fragmentScreenGame" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentScreenGameResult"
+        android:name="com.example.game_ui.screen_result.FragmentScreenGameResult"
+        android:label="FragmentScreenGameResult" >
+        <action
+            android:id="@+id/action_fragmentScreenGameResult_to_fragmentScreenLevels"
+            app:destination="@id/fragmentScreenLevels" />
     </fragment>
 </navigation>
