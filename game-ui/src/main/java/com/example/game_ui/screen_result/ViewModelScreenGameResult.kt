@@ -2,12 +2,30 @@ package com.example.game_ui.screen_result
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.example.common.BlazeMinesViewModel
 import com.example.common.BlazeMinesViewModelSingleLifeEvent
+import com.example.game_domain.Interactor
 import com.example.game_ui.common.LevelResult
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class ViewModelScreenGameResult : BlazeMinesViewModel<ViewModelScreenGameResult.Model>(Model()){
+class ViewModelScreenGameResult @Inject constructor(
+    private val interactor: Interactor
+) : BlazeMinesViewModel<ViewModelScreenGameResult.Model>(Model()) {
+
+    fun activateCell(
+        id: Long,
+        activated: Boolean
+    ) {
+        viewModelScope.launch(Dispatchers.IO) {
+            interactor.updateCellActivation(
+                id,
+                activated
+            )
+        }
+    }
 
     fun buttonBackPressed() {
         updateNavigationEvent(
@@ -52,11 +70,15 @@ class ViewModelScreenGameResult : BlazeMinesViewModel<ViewModelScreenGameResult.
         }
     }
 
-    class Factory @Inject constructor() : ViewModelProvider.Factory {
+    class Factory @Inject constructor(
+        private val interactor: Interactor
+    ) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             require(modelClass == ViewModelScreenGameResult::class.java)
-            return ViewModelScreenGameResult() as T
+            return ViewModelScreenGameResult(
+                interactor
+            ) as T
         }
     }
 }

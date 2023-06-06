@@ -129,6 +129,7 @@ class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels)
         )
 
         levelsInfo.forEachIndexed { index, levelInfo ->
+
             val activeCell = if (levelInfo.activated) {
                 cellsActivatedBackground[index]
             } else {
@@ -148,8 +149,14 @@ class FragmentScreenLevels : BlazeMinesFragment(R.layout.fragment_screen_levels)
             }
 
             cellStars[index].setImageDrawable(stars)
+        }
 
-            cells[index].setOnClickListener {
+        val lastActivatedCellId = levelsInfo.last {
+            it.activated
+        }.id.toInt()
+
+        cells.slice(0 until lastActivatedCellId).onEachIndexed { index, levelInfo ->
+            levelInfo.setOnClickListener {
                 val nextLevelIndex = if (index == 14) {
                     0
                 } else {

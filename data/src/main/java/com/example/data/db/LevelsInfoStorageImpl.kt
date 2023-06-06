@@ -65,4 +65,15 @@ class LevelsInfoStorageImpl @Inject constructor(
         )
         return true
     }
+
+    override suspend fun updateCellActivation(id: Long, activated: Boolean): Boolean {
+        val level = levelsDatabase.getLevelById(id)
+
+        levelsDatabase.update(
+            level.copy(
+                activated = activated
+            )
+        )
+        return true
+    }
 }

@@ -9,4 +9,6 @@ interface LevelsInfoStorage {
     suspend fun getAll() : List<LevelInfoDB>
 
     suspend fun updateNumberOfStars(id: Long, newNumberOfStars: NumberOfStars) : Boolean
+
+    suspend fun updateCellActivation(id: Long, activated: Boolean) : Boolean
 }

@@ -7,4 +7,6 @@ interface Interactor {
     suspend fun loadLevelsInfoFromDB(): List<LevelInfo>
 
     suspend fun updateNumberOfStars(id: Long, newNumberOfStars: NumberOfStars): Boolean
+
+    suspend fun updateCellActivation(id: Long, activated: Boolean): Boolean
 }

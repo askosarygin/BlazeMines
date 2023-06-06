@@ -2,7 +2,6 @@ package com.example.game_ui.screen_game
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -215,8 +214,6 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
                     0 -> {
                         binding.ivLifeHearts.background =
                             resources.getDrawable(R.drawable.icon_life_hearts_0)
-                        //todo направление на экран результатов
-                        Log.i("MY_TAG", "Все жизни закончились")
                         directionToResultGame(getLevelResult())
                     }
                     1 -> binding.ivLifeHearts.background =
@@ -238,7 +235,6 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
                 }
                 if (newModel.leftToFindFires == 0) {
                     directionToResultGame(getLevelResult())
-                    Log.i("MY_TAG", "Все огоньки найдены")
                 }
             }
         }

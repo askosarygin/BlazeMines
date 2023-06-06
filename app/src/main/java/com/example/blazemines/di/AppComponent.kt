@@ -64,6 +64,7 @@ class AppModule {
             LevelsInfoDatabase::class.java,
             resources.getString(com.example.common.R.string.blaze_mines_database)
         ).build()
+
         return db.levelsDAO()
     }
 

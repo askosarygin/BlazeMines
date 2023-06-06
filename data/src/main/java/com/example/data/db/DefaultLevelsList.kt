@@ -5,7 +5,7 @@ import com.example.common.NumberOfStars
 
 object DefaultLevelsList {
     val levels = listOf(
-        LevelInfoDB(0L, 1, NumberOfStars.Zero.name, 2, 1, 3, false),
+        LevelInfoDB(0L, 1, NumberOfStars.Zero.name, 2, 1, 3, true),
         LevelInfoDB(0L, 2, NumberOfStars.Zero.name, 3, 2, 5, false),
         LevelInfoDB(0L, 3, NumberOfStars.Zero.name, 4, 2, 6, false),
         LevelInfoDB(0L, 4, NumberOfStars.Zero.name, 5, 2, 7, false),

@@ -2,7 +2,6 @@ package com.example.game_ui.screen_result
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -75,9 +74,6 @@ class FragmentScreenGameResult : BlazeMinesFragment(R.layout.fragment_screen_gam
             var currentLevelIndex = viewModel.model.value.levelResult.levelsInfo.currentLevelIndex
             var nextLevelIndex = viewModel.model.value.levelResult.levelsInfo.nextLevelIndex
 
-            Log.i("MY_TAG", "currentLevelIndex ${currentLevelIndex}")
-            Log.i("MY_TAG", "nextLevelIndex ${nextLevelIndex}")
-
             if (nextLevelIndex == 14) {
                 nextLevelIndex = 0
             } else {
@@ -131,6 +127,17 @@ class FragmentScreenGameResult : BlazeMinesFragment(R.layout.fragment_screen_gam
                     append(newModel.levelResult.foundFires)
                     append("/")
                     append(newModel.levelResult.needFires)
+                }
+
+                if (newModel.levelResult.needFires - newModel.levelResult.foundFires != 0) {
+                    binding.btnNext.visibility = View.INVISIBLE
+                } else {
+                    if (newModel.levelResult.currentLevelInfo.id < 15) {
+                        viewModel.activateCell(
+                            newModel.levelResult.currentLevelInfo.id + 1,
+                            true
+                        )
+                    }
                 }
             }
         }

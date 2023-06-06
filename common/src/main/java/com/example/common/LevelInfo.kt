@@ -8,4 +8,4 @@ data class LevelInfo(
     val numberOfFires: Int = 0,
     val numberOfCells: Int = 0,
     val activated: Boolean = false
-) : java.io.Serializable
+)

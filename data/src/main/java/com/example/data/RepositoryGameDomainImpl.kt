@@ -15,4 +15,7 @@ class RepositoryGameDomainImpl @Inject constructor(
         id: Long,
         newNumberOfStars: NumberOfStars
     ): Boolean = levelsInfoStorage.updateNumberOfStars(id, newNumberOfStars)
+
+    override suspend fun updateCellActivationInDB(id: Long, activated: Boolean): Boolean =
+        levelsInfoStorage.updateCellActivation(id, activated)
 }
