@@ -4,9 +4,9 @@ import com.example.common.LevelInfoDB
 import com.example.common.NumberOfStars
 import javax.inject.Inject
 
-class LevelsStorageImpl @Inject constructor(
+class LevelsInfoStorageImpl @Inject constructor(
     private val levelsDatabase: LevelsDAO
-) : LevelsStorage {
+) : LevelsInfoStorage {
     override suspend fun save(levelInfoDB: LevelInfoDB): Boolean {
         levelsDatabase.add(
             LevelDatabaseClass(

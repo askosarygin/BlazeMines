@@ -38,6 +38,6 @@ interface LevelsDAO {
 }
 
 @Database(entities = [LevelDatabaseClass::class], version = 1, exportSchema = false)
-abstract class LevelsDatabase : RoomDatabase() {
+abstract class LevelsInfoDatabase : RoomDatabase() {
     abstract fun levelsDAO(): LevelsDAO
 }
