@@ -16,5 +16,4 @@ class RepositoryMainDomainImpl @Inject constructor(
 
     override suspend fun getBombIconIdFromAppData(): Int =
         appData.getBombIconId()
-
 }

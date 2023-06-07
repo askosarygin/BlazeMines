@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Resources
 import androidx.room.Room
+import com.example.blazemines.MainActivity
 import com.example.blazemines.R
 import com.example.common.NavHostsInfo
 import com.example.data.appdata.AppData
@@ -32,10 +33,8 @@ interface AppComponent
     override val navHostsInfo: NavHostsInfo
     override val levelsInfoStorage: LevelsInfoStorage
     override val appData: AppData
-//    override val questionsInfoDAO: QuestionsInfoDAO
-//    override val resources: Resources
-//    override val sharedPreferences: SharedPreferences
 
+    fun inject(mainActivity: MainActivity)
 
     @Component.Builder
     interface Builder {

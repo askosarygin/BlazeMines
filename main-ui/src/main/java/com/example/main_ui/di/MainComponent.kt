@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.example.common.NavHostsInfo
 import com.example.data.RepositoryMainDomainImpl
 import com.example.data.appdata.AppData
+import com.example.data.db.LevelsInfoStorage
 import com.example.main_domain.Interactor
 import com.example.main_domain.InteractorImpl
 import com.example.main_domain.Repository
@@ -55,6 +56,7 @@ interface MainModuleBinds {
 
 interface MainComponentDependencies {
     val navHostsInfo: NavHostsInfo
+    val levelsInfoStorage: LevelsInfoStorage
     val appData: AppData
 }
 

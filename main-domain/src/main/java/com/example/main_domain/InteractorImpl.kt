@@ -9,5 +9,4 @@ class InteractorImpl @Inject constructor(
 ) : Interactor {
     override suspend fun getScreenSettings(): ScreenSettings =
         getScreenSettingsUseCase.execute()
-
 }

@@ -22,15 +22,9 @@ class LevelsInfoStorageImpl @Inject constructor(
         return true
     }
 
-    override suspend fun getAll(): List<LevelInfoDB> {
-        val levels = levelsDatabase.getAll()
-
-        if (levels.isEmpty()) {
-            DefaultLevelsList.levels.forEach {
-                save(it)
-            }
-
-            return levelsDatabase.getAll().map {
+    override suspend fun getAll(): List<LevelInfoDB> =
+        levelsDatabase.getAll()
+            .map {
                 LevelInfoDB(
                     it.id,
                     it.number,
@@ -41,20 +35,6 @@ class LevelsInfoStorageImpl @Inject constructor(
                     it.activated
                 )
             }
-        }
-
-        return levels.map {
-            LevelInfoDB(
-                it.id,
-                it.number,
-                it.numberOfStars,
-                it.numberOfBombs,
-                it.numberOfFires,
-                it.numberOfCells,
-                it.activated
-            )
-        }
-    }
 
     override suspend fun updateNumberOfStars(id: Long, newNumberOfStars: NumberOfStars): Boolean {
         val level = levelsDatabase.getLevelById(id)
@@ -75,5 +55,14 @@ class LevelsInfoStorageImpl @Inject constructor(
             )
         )
         return true
+    }
+
+    override suspend fun initDB() {
+        val levels = levelsDatabase.getAll()
+        if (levels.isEmpty()) {
+            DefaultLevelsList.levels.forEach {
+                save(it)
+            }
+        }
     }
 }
