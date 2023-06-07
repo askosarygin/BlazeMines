@@ -69,7 +69,7 @@ class ViewModelScreenGame(
     data class Model(
         val screenSettings: ScreenSettings = ScreenSettings(),
         val leftToFindFires: Int = -1,
-        val lifeHeartsCount: Int = 3,
+        val lifeHeartsCount: Int = 4,
         val currentLevelInfo: LevelInfo? = null,
         val levelsInfo: LevelsInfo = LevelsInfo(),
         val navigationEvent: NavigationSingleLifeEvent? = null

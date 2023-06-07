@@ -227,5 +227,9 @@
         app:layout_constraintTop_toTopOf="@id/iv_cell_14"
         tools:src="@drawable/icon_cell_bomb_2" />
 
+    <include
+        android:id="@+id/how_to_play_window"
+        layout="@layout/fragment_screen_how_to_play"
+        android:visibility="invisible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

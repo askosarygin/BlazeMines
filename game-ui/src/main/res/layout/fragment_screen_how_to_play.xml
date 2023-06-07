@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blaze_mines_black_2">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1025" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_start"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10278" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_end"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.89444" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_start_button_back"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="@dimen/indent_button_back_start" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_game_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_name"
+        android:textSize="@dimen/text_size_extra_extra_large"
+        app:fontFamily="@font/roboto_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gl_top" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btn_back"
+        android:layout_width="59dp"
+        android:layout_height="59dp"
+        android:src="@drawable/icon_back"
+        app:layout_constraintStart_toStartOf="@id/gl_start_button_back"
+        app:layout_constraintTop_toTopOf="@id/tv_game_name" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_background_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:src="@drawable/background_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_game_name" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/iv_how_to_play_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:gravity="center"
+        android:text="@string/how_to_play_header"
+        android:textColor="@color/blaze_mines_white"
+        android:letterSpacing="0.04"
+        android:textSize="@dimen/text_size_extra_extra_medium"
+        app:fontFamily="@font/roboto_bold"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="@id/iv_background_text"
+        app:layout_constraintStart_toStartOf="@id/iv_background_text"
+        app:layout_constraintTop_toTopOf="@id/iv_background_text" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:letterSpacing="0.04"
+        android:text="@string/how_to_play_description"
+        android:textColor="@color/blaze_mines_white"
+        android:textSize="@dimen/text_size_medium"
+        app:fontFamily="@font/roboto_light"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="@id/iv_background_text"
+        app:layout_constraintStart_toStartOf="@id/iv_background_text"
+        app:layout_constraintTop_toBottomOf="@id/iv_how_to_play_header" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

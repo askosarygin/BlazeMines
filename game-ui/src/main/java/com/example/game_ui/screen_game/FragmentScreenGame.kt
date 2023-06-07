@@ -90,7 +90,7 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
                     cellView
                 )
             }
-            
+
             cellsForGame.forEach {
                 changeScreenSettings(
                     viewModel.model.value.screenSettings,
@@ -120,7 +120,7 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
                 append(levelInfo.numberOfFires)
             }
 
-            delay(2000L)//todo
+            delay(1500L)
 
             cellsForGame.forEach {
                 it.cellView.setImageDrawable(resources.getDrawable(R.drawable.icon_cell_empty))
@@ -167,7 +167,10 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
         }
 
         binding.btnHowToPlay.setOnClickListener {
-            viewModel.buttonHowToPlayPressed()
+            binding.howToPlayWindow.root.visibility = View.VISIBLE
+        }
+        binding.howToPlayWindow.btnBack.setOnClickListener {
+            binding.howToPlayWindow.root.visibility = View.INVISIBLE
         }
     }
 
@@ -237,16 +240,14 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
 
             if (oldModel?.lifeHeartsCount != newModel.lifeHeartsCount) {
                 when (newModel.lifeHeartsCount) {
-                    0 -> {
-                        binding.ivLifeHearts.background =
-                            resources.getDrawable(R.drawable.icon_life_hearts_0)
-                        directionToResultGame(getLevelResult())
-                    }
+                    0 -> directionToResultGame(getLevelResult())
                     1 -> binding.ivLifeHearts.background =
-                        resources.getDrawable(R.drawable.icon_life_hearts_1)
+                        resources.getDrawable(R.drawable.icon_life_hearts_0)
                     2 -> binding.ivLifeHearts.background =
-                        resources.getDrawable(R.drawable.icon_life_hearts_2)
+                        resources.getDrawable(R.drawable.icon_life_hearts_1)
                     3 -> binding.ivLifeHearts.background =
+                        resources.getDrawable(R.drawable.icon_life_hearts_2)
+                    4 -> binding.ivLifeHearts.background =
                         resources.getDrawable(R.drawable.icon_life_hearts_3)
                 }
             }
