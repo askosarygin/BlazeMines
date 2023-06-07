@@ -184,10 +184,10 @@ class FragmentScreenGame : BlazeMinesFragment(R.layout.fragment_screen_game) {
 
         if (currentLevelInfo!!.numberOfStars < levelResult.starsCount) {
             val numberOfStars = when (levelResult.starsCount) {
-                0 -> NumberOfStars.Zero
-                1 -> NumberOfStars.One
-                2 -> NumberOfStars.Two
-                3 -> NumberOfStars.Three
+                1 -> NumberOfStars.Zero
+                2 -> NumberOfStars.One
+                3 -> NumberOfStars.Two
+                4 -> NumberOfStars.Three
                 else -> {
                     NumberOfStars.Zero
                 }

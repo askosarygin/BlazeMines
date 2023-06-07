@@ -115,13 +115,13 @@ class FragmentScreenGameResult : BlazeMinesFragment(R.layout.fragment_screen_gam
 
             if (oldModel?.levelResult != newModel.levelResult) {
                 when (newModel.levelResult.starsCount) {
-                    0 -> binding.ivResultStars.background =
-                        resources.getDrawable(R.drawable.icon_stars_0)
                     1 -> binding.ivResultStars.background =
-                        resources.getDrawable(R.drawable.icon_stars_1)
+                        resources.getDrawable(R.drawable.icon_stars_0)
                     2 -> binding.ivResultStars.background =
-                        resources.getDrawable(R.drawable.icon_stars_2)
+                        resources.getDrawable(R.drawable.icon_stars_1)
                     3 -> binding.ivResultStars.background =
+                        resources.getDrawable(R.drawable.icon_stars_2)
+                    4 -> binding.ivResultStars.background =
                         resources.getDrawable(R.drawable.icon_stars_3)
                 }
 
